@@ -174,6 +174,8 @@ $(function(){
             placeholder: "",
             cursor: "move",
             opacity: 0.5,
+            revert: true,
+            scroll: true,
             receive: function( event, ui ) {
                 trac_id = $(this).find(".trac").attr("title");
                 trac_area = $(this).attr("id");
@@ -185,6 +187,8 @@ $(function(){
             placeholder: "",
             cursor: "move",
             opacity: 0.5,
+            revert: true,
+            scroll: true,
             receive: function( event, ui ) {
                 trac_id = $(this).find(".trac").attr("title");
                 trac_area = $(this).attr("id");
@@ -196,6 +200,8 @@ $(function(){
             placeholder: "",
             cursor: "move",
             opacity: 0.5,
+            revert: true,
+            scroll: true,
             receive: function( event, ui ) {
                 trac_id = $(this).find(".trac").attr("title");
                 trac_area = $(this).attr("id");
@@ -207,6 +213,8 @@ $(function(){
             placeholder: "",
             cursor: "move",
             opacity: 0.5,
+            revert: true,
+            scroll: true,
             receive: function( event, ui ) {
                 trac_id = $(this).find(".trac").attr("title");
                 trac_area = $(this).attr("id");
@@ -218,6 +226,8 @@ $(function(){
             placeholder: "",
             cursor: "move",
             opacity: 0.5,
+            revert: true,
+            scroll: true,
             receive: function( event, ui ) {
                 trac_id = $(this).find(".trac").attr("title");
                 trac_area = $(this).attr("id");

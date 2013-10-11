@@ -172,6 +172,8 @@ $(function(){
         $('#show-box').sortable({
             connectWith: ".sortable-div", 
             placeholder: "",
+            cursor: "move",
+            opacity: 0.5,
             receive: function( event, ui ) {
                 trac_id = $(this).find(".trac").attr("title");
                 trac_area = $(this).attr("id");
@@ -181,6 +183,8 @@ $(function(){
         $('#non-costomers-box').sortable({
             connectWith: ".sortable-div", 
             placeholder: "",
+            cursor: "move",
+            opacity: 0.5,
             receive: function( event, ui ) {
                 trac_id = $(this).find(".trac").attr("title");
                 trac_area = $(this).attr("id");
@@ -190,6 +194,8 @@ $(function(){
         $('#sales-box').sortable({
             connectWith: ".sortable-div", 
             placeholder: "",
+            cursor: "move",
+            opacity: 0.5,
             receive: function( event, ui ) {
                 trac_id = $(this).find(".trac").attr("title");
                 trac_area = $(this).attr("id");
@@ -199,6 +205,8 @@ $(function(){
         $('#order-box').sortable({
             connectWith: ".sortable-div", 
             placeholder: "",
+            cursor: "move",
+            opacity: 0.5,
             receive: function( event, ui ) {
                 trac_id = $(this).find(".trac").attr("title");
                 trac_area = $(this).attr("id");
@@ -208,6 +216,8 @@ $(function(){
         $('#lost-box').sortable({
             connectWith: ".sortable-div", 
             placeholder: "",
+            cursor: "move",
+            opacity: 0.5,
             receive: function( event, ui ) {
                 trac_id = $(this).find(".trac").attr("title");
                 trac_area = $(this).attr("id");

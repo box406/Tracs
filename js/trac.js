@@ -7,6 +7,12 @@
  */
 $(function(){
 
+    // 
+    // const
+    // 
+    var TRAC_AREA_INFO = ["show-box", "non-costomers-box", "sales-box", "order-box", "lost-box"];
+
+
     //
     // add sales reports
     //
@@ -130,7 +136,7 @@ $(function(){
         // init
         add_code = "";
 
-        add_code = ' <div title="' + trac_id + '" class="ui_state_default trac">'
+        add_code = ' <div id="trac_' + trac_id + '" title="' + trac_id + '" class="ui_state_default trac">'
         add_code += '  <div class="alert alert-warning">';
         add_code += '    <span class="warning glyphicon glyphicon-warning-sign" style="color:red;"></span>';
         add_code += '    <i class="icon-ticket"></i> ' + trac;
@@ -169,71 +175,31 @@ $(function(){
     //
 
     function sort() {
-        $('#show-box').sortable({
-            connectWith: ".sortable-div", 
-            placeholder: "",
-            cursor: "move",
-            opacity: 0.5,
-            revert: true,
-            scroll: true,
-            receive: function( event, ui ) {
-                trac_id = $(this).find(".trac").attr("title");
-                trac_area = $(this).attr("id");
-                showBox(this, trac_id, trac_area);
-            }
-        });
-        $('#non-costomers-box').sortable({
-            connectWith: ".sortable-div", 
-            placeholder: "",
-            cursor: "move",
-            opacity: 0.5,
-            revert: true,
-            scroll: true,
-            receive: function( event, ui ) {
-                trac_id = $(this).find(".trac").attr("title");
-                trac_area = $(this).attr("id");
-                nonCustomersBox(this, trac_id, trac_area);
-            }
-        });
-        $('#sales-box').sortable({
-            connectWith: ".sortable-div", 
-            placeholder: "",
-            cursor: "move",
-            opacity: 0.5,
-            revert: true,
-            scroll: true,
-            receive: function( event, ui ) {
-                trac_id = $(this).find(".trac").attr("title");
-                trac_area = $(this).attr("id");
-                salesBox(this, trac_id, trac_area);
-            }
-        });
-        $('#order-box').sortable({
-            connectWith: ".sortable-div", 
-            placeholder: "",
-            cursor: "move",
-            opacity: 0.5,
-            revert: true,
-            scroll: true,
-            receive: function( event, ui ) {
-                trac_id = $(this).find(".trac").attr("title");
-                trac_area = $(this).attr("id");
-                orderBox(this, trac_id, trac_area);
-            }
-        });
-        $('#lost-box').sortable({
-            connectWith: ".sortable-div", 
-            placeholder: "",
-            cursor: "move",
-            opacity: 0.5,
-            revert: true,
-            scroll: true,
-            receive: function( event, ui ) {
-                trac_id = $(this).find(".trac").attr("title");
-                trac_area = $(this).attr("id");
-                lostBox(this, trac_id, trac_area);
-            }
-        });
+
+        for (trac_area in TRAC_AREA_INFO) {
+
+            // move&sort trac area
+            $('#' + TRAC_AREA_INFO[trac_area]).sortable({
+                connectWith: ".sortable-div", 
+                placeholder: "",
+                cursor: "move",
+                opacity: 0.5,
+                revert: true,
+                scroll: true,
+                receive: function( event, ui ) {
+
+                    // move the trac area
+                    chengeArea(this, ui.item.attr("title"), $(this).attr("id"));
+                },
+                update: function(event, ui) {
+
+                    // sort the trac area
+                    trac_area_name = $(this).attr("id")
+                    console.log($('#' + trac_area_name).sortable("toArray").join());
+                }
+            });
+
+        }
     }
 
     // 
@@ -256,7 +222,6 @@ $(function(){
 
             }
         });
-
     }
 
 
@@ -266,6 +231,26 @@ $(function(){
 
     function addTrac() {
         console.log("addTrac");
+    }
+
+    function chengeArea(obj, trac_id, trac_area) {
+        switch (trac_area) {
+            case "show-box":
+                showBox(obj, trac_id, trac_area);
+                break;
+            case "non-costomers-box":
+                nonCustomersBox(obj, trac_id, trac_area);
+                break;
+            case "sales-box":
+                salesBox(obj, trac_id, trac_area);
+                break;
+            case "order-box":
+                orderBox(obj, trac_id, trac_area);
+                break;
+            case "lost-box":
+                lostBox(obj, trac_id, trac_area);
+                break;
+        }
     }
     
     function showBox(obj, trac_id, trac_area) {

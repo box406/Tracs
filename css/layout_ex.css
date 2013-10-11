@@ -1,0 +1,118 @@
+.container {
+    max-width: 1400px;
+    max-height: 100%;
+}
+.panel-heading {
+    padding: 5px 10px;
+}
+
+.panel #show-box, #non-costomers-box, #sales-box, #order-box, #lost-box {
+    background-image: url("../images/Patterns1-06.png");
+    border-radius: 0px;
+}
+ 
+.panel-heading {
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12{
+    padding-right: 1px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-top: 3px;
+}
+
+.navbar {
+    margin-bottom: 2px; 
+}
+
+#chenge-project {
+    width: 200px;
+}
+
+hr {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.trac {
+    z-index: 1000;
+}
+
+.well .btn {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.right{
+    text-align: right;
+}
+
+.job {
+    padding-left: 2px;
+}
+
+.trac .alert {
+    padding: 4px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+}
+
+.tracinfo{
+    padding: 1px;
+    padding-left: 8px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    background-color: #8A8A8A;
+    color: #ffffff;
+}
+
+.date, .lang {
+    font-size: 80%;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px #36393C;
+}
+
+.current-box-num {
+    font-size: 125%;
+    font-weight: 500;
+    color: #E0D11F;
+}
+
+.status-line {
+    vertical-align: bottom;
+    padding-left: 10px;
+}
+
+#input-trac-area {
+    width: 348px;
+}
+
+.modal-dialog .form-group {
+    margin-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.modal-dialog{
+    width: 900px;
+}
+
+.tab-content {
+    padding-top: 10px;
+}
+
+.trac-area-overflow {
+    overflow-y: hidden;
+    overflow-x: auto;
+    overflow: auto;
+}
+
+.trac-area-defult {
+    height: 200px;    
+} 
+
+.trac-area-sales {
+    height: 474px;    
+} 

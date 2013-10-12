@@ -60,27 +60,27 @@ $(function(){
         add_code += '            <hr />';
         add_code += '            <div class="form-group">';
         add_code += '              <label for="InputTracname">Visit Date</label>';
-        add_code += '              <input type="text" class="form-control" id="InputTracname" placeholder="Enter VisitData">';
+        add_code += '              <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter VisitData">';
         add_code += '            </div>';
         add_code += '            <div class="form-group">';
         add_code += '              <label for="InputTracname">Department Visit</label>';
-        add_code += '              <input type="text" class="form-control" id="InputTracname" placeholder="Enter DepartmentVisit">';
+        add_code += '              <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter DepartmentVisit">';
         add_code += '            </div>';
         add_code += '            <div class="form-group">';
         add_code += '              <label for="InputTracname">Department Parsonnel</label>';
-        add_code += '              <input type="text" class="form-control" id="InputTracname" placeholder="Enter DepartmentParsonnel">';
+        add_code += '              <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter DepartmentParsonnel">';
         add_code += '            </div>';
         add_code += '            <div class="form-group">';
         add_code += '              <label for="InputTracname">Department Address</label>';
-        add_code += '              <input type="text" class="form-control" id="InputTracname" placeholder="Enter DepartmentAddress">';
+        add_code += '              <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter DepartmentAddress">';
         add_code += '            </div>';
         add_code += '            <div class="form-group">';
         add_code += '              <label for="InputTracname">Client Attended</label>';
-        add_code += '              <input type="text" class="form-control" id="InputTracname" placeholder="Enter ClientAttended">';
+        add_code += '              <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter ClientAttended">';
         add_code += '            </div>';
         add_code += '            <div class="form-group">';
         add_code += '              <label for="InputTracname">Our Company Attended</label>';
-        add_code += '              <input type="text" class="form-control" id="InputTracname" placeholder="Enter Our CompanyAttended">';
+        add_code += '              <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter Our CompanyAttended">';
         add_code += '            </div>';
         add_code += '            <div class="form-group">';
         add_code += '              <label for="InputTracname">Sales Content</label>';
@@ -315,5 +315,13 @@ $(function(){
 
     $(".collapse").collapse({
         parent: true
+    });
+
+    // 
+    // datepicker
+    //
+    $("#regist_date").datepicker();
+    $("#start_date").datepicker({
+        "dateformat": "yy/mm/dd"
     });
 });

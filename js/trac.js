@@ -43,61 +43,89 @@ $(function(){
         add_code += '    </div>';
         add_code += '    <div id="collapse' + sales_report_id + '" class="panel-collapse collapse in">';
         add_code += '      <div class="panel-body">';
-        add_code += '        <form role="form" class="form-horizontal">';
-        add_code += '          <div class="form-group">';
-        add_code += '            <div class="radio">';
-        add_code += '              <label>';
-        add_code += '                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>';
-        add_code += '                Visit before';
-        add_code += '              </label>';
-        add_code += '            </div>';
-        add_code += '            <div class="radio">';
-        add_code += '              <label>';
-        add_code += '                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">';
-        add_code += '                After the visit';
-        add_code += '              </label>';
-        add_code += '            </div>';
-        add_code += '            <hr />';
-        add_code += '            <div class="form-group">';
-        add_code += '              <label for="InputTracname">Visit Date</label>';
-        add_code += '              <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter VisitData">';
-        add_code += '            </div>';
-        add_code += '            <div class="form-group">';
-        add_code += '              <label for="InputTracname">Department Visit</label>';
-        add_code += '              <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter DepartmentVisit">';
-        add_code += '            </div>';
-        add_code += '            <div class="form-group">';
-        add_code += '              <label for="InputTracname">Department Parsonnel</label>';
-        add_code += '              <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter DepartmentParsonnel">';
-        add_code += '            </div>';
-        add_code += '            <div class="form-group">';
-        add_code += '              <label for="InputTracname">Department Address</label>';
-        add_code += '              <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter DepartmentAddress">';
-        add_code += '            </div>';
-        add_code += '            <div class="form-group">';
-        add_code += '              <label for="InputTracname">Client Attended</label>';
-        add_code += '              <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter ClientAttended">';
-        add_code += '            </div>';
-        add_code += '            <div class="form-group">';
-        add_code += '              <label for="InputTracname">Our Company Attended</label>';
-        add_code += '              <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter Our CompanyAttended">';
-        add_code += '            </div>';
-        add_code += '            <div class="form-group">';
-        add_code += '              <label for="InputTracname">Sales Content</label>';
-        add_code += '              <textarea class="form-control" rows="3"></textarea>';
-        add_code += '            </div>';
-        add_code += '            <div class="form-group">';
-        add_code += '              <label for="InputTracname">Task</label>';
-        add_code += '              <textarea class="form-control" rows="3"></textarea>';
-        add_code += '            </div>';
-        add_code += '          </div>';
-        add_code += '        </form>';
+        add_code += '         <form role="form" class="form-horizontal">';
+        add_code += '           <div class="row">';
+        add_code += '             <div class="col-lg-12">';                                
+        add_code += '               <div class="radio">';
+        add_code += '                 <label>';
+        add_code += '                   <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>';
+        add_code += '                   Visit before';
+        add_code += '                 </label>';
+        add_code += '               </div>';
+        add_code += '               <div class="radio">';
+        add_code += '                 <label>';
+        add_code += '                   <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">';
+        add_code += '                   After the visit';
+        add_code += '                 </label>';
+        add_code += '               </div>';
+        add_code += '             </div>';
+        add_code += '           </div>';
+        add_code += '           <hr />';
+        add_code += '           <div class="row">';
+        add_code += '             <div class="col-lg-6">';
+        add_code += '               <div class="form-group">';
+        add_code += '                 <label for="InputTracname"><span class="ui-datepicker-trigger glyphicon glyphicon-calendar"></span> Visit Date</label>';
+        add_code += '                 <input type="text" class="form-control input-sm" id="visit_date" placeholder="Enter VisitData">';
+        add_code += '               </div>';
+        add_code += '             </div>';
+        add_code += '             <div class="col-lg-6">';
+        add_code += '               <div class="form-group">';
+        add_code += '                 <label for="InputTracname">Department Visit</label>';
+        add_code += '                 <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter DepartmentVisit">';
+        add_code += '               </div>';
+        add_code += '             </div>';
+        add_code += '           </div>';
+        add_code += '           <div class="row">';
+        add_code += '             <div class="col-lg-6">';
+        add_code += '               <div class="form-group">';
+        add_code += '                 <label for="InputTracname">Department Parsonnel</label>';
+        add_code += '                 <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter DepartmentParsonnel">';
+        add_code += '               </div>';
+        add_code += '             </div>';
+        add_code += '             <div class="col-lg-6">';
+        add_code += '               <div class="form-group">';
+        add_code += '                 <label for="InputTracname">Department Address</label>';
+        add_code += '                 <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter DepartmentAddress">';
+        add_code += '               </div>';
+        add_code += '             </div>';
+        add_code += '           </div>';
+        add_code += '           <div class="row">';
+        add_code += '             <div class="col-lg-6">';
+        add_code += '               <div class="form-group">';
+        add_code += '                 <label for="InputTracname">Client Attended</label>';
+        add_code += '                 <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter ClientAttended">';
+        add_code += '               </div>';
+        add_code += '             </div>';
+        add_code += '             <div class="col-lg-6">';
+        add_code += '               <div class="form-group">';
+        add_code += '                 <label for="InputTracname">Our Company Attended</label>';
+        add_code += '                 <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter Our CompanyAttended">';
+        add_code += '               </div>';
+        add_code += '             </div>';
+        add_code += '           </div>';
+        add_code += '           <div class="row">';
+        add_code += '             <div class="col-lg-12">';
+        add_code += '               <div class="form-group">';
+        add_code += '                 <label for="InputTracname">Sales Content</label>';
+        add_code += '                 <textarea class="form-control" rows="5"></textarea>';
+        add_code += '               </div>';
+        add_code += '             </div>';
+        add_code += '           </div>';
+        add_code += '           <div class="row">';
+        add_code += '             <div class="col-lg-12">';
+        add_code += '               <div class="form-group">';
+        add_code += '                 <label for="InputTracname">Task</label>';
+        add_code += '                 <textarea class="form-control" rows="5"></textarea>';
+        add_code += '               </div>';
+        add_code += '             </div>';
+        add_code += '           </div>';
+        add_code += '         </form>';
         add_code += '      </div>';
         add_code += '    </div>';
         add_code += '  </div>';
         add_code += '</div>';
 
-        $("#sales-reports-area").append(add_code);
+        $("#sales-reports-area").prepend(add_code);
 
     });
 
@@ -320,8 +348,13 @@ $(function(){
     // 
     // datepicker
     //
-    $("#regist_date").datepicker();
+    $("#regist_date").datepicker({
+        dateFormat: "yy/mm/dd",
+    });
     $("#start_date").datepicker({
-        "dateformat": "yy/mm/dd"
+        dateFormat: "yy/mm/dd"
+    });
+    $("#visit_date").datepicker({
+        dateFormat: "yy/mm/dd"
     });
 });

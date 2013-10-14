@@ -125,7 +125,7 @@ $(function(){
         add_code += '  </div>';
         add_code += '</div>';
 
-        $("#sales-reports-area").prepend(add_code);
+        $("#sales-reports-area").hide().prepend(add_code).fadeIn();
 
     });
 

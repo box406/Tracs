@@ -116,3 +116,7 @@ hr {
 .trac-area-sales {
     height: 474px;    
 } 
+#project_info_bar {
+    padding-top: 10px;
+    padding-bottom: 4px;
+}

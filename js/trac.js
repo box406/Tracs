@@ -1,10 +1,3 @@
-/**
- * Created with JetBrains PhpStorm.
- * User: box406
- * Date: 2013/08/08
- * Time: 6:23
- * To change this template use File | Settings | File Templates.
- */
 $(function(){
 
     // 
@@ -233,7 +226,7 @@ $(function(){
     // 
     // ajax
     //
-    function sendAjax(trac_id, trac_area) {
+    function sendAjax(type, url, option) {
         // post to server
         $.ajax({
             type: 'post',
@@ -357,4 +350,43 @@ $(function(){
     $("#visit_date").datepicker({
         dateFormat: "yy/mm/dd"
     });
+
+    //
+    // add project
+    //
+    $("#add_project").click(function(){
+
+        var project_name = $("#project_name").val();
+
+        if (project_name) {
+
+            var code = null;
+
+            code += '<tr>';
+            code += '  <td><button type="button" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-edit"></span> edit</button> </td>';
+            code += '  <td>' + project_name + '</td>';
+            code += '  <td>';
+            code += '  </td>';
+            code += '  <td>';
+            code += '      <button type="button" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> delete</button>';
+            code += '  </td>';
+            code += '</tr>';
+
+            $("#project_list tbody").append(code);
+            $("#project_name").val("");
+            $("#add_project").addClass('disabled');
+        }
+    });
+
+    // add trac buttonの操作、入力があればdisabledを解除する
+    $("#project_name").keypress(function(event) {
+        /* Act on the event */
+        $("#add_project").removeClass('disabled');        
+    });
+
+    $("#project_name").keydown(function(event) {
+        /* Act on the event */
+        $("#add_project").removeClass('disabled');        
+    });
+
 });

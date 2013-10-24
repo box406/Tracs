@@ -372,7 +372,7 @@ $(function(){
             code += '  </td>';
             code += '</tr>';
 
-            $("#project_list tbody").append(code);
+            $("#project_list tbody").hide().append(code).fadeIn();
             $("#project_name").val("");
             $("#add_project").addClass('disabled');
         }

@@ -1,0 +1,576 @@
+            <div class="row show-grid">
+                <div class="col-lg-12">
+                    <select class="form-control input-small" name="chenge-project" id="chenge-project">
+                        <option value="">Chenge Project</option>
+                        <option value="">Digup</option>
+                    </select>
+                    <hr />
+                </div>
+            </div>
+            <div class="row show-grid">
+                <div class="col-lg-8">
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <input type="text" id="input-trac-area" class="form-control" placeholder="Enter the Project" />
+                        </div>
+                        <div class="btn-group">
+                            <button id="add-trac" type="button" class="btn btn-primary dropdown-toggle disabled" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-pushpin"></span> Add Trac
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li role="presentation" class="dropdown-header">第1営業部</li>
+                                <li><a class="add-trac" href="">小田 和久</a></li>
+                                <li><a class="add-trac" href="">横尾 結子</a></li>
+                                <li><a class="add-trac" href="">小笠原 沙知絵</a></li>
+                                <li><a class="add-trac" href="">平田 米蔵</a></li>
+                                <li class="divider"></li>
+                                <li role="presentation" class="dropdown-header">第2営業部</li>
+                                <li><a class="add-trac" href="">国分 春樹</a></li>
+                                <li><a class="add-trac" href="">立川 花緑</a></li>
+                                <li><a class="add-trac" href="">宮川 光洋</a></li>
+                                <li><a class="add-trac" href="">浜田 明宏</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="search" placeholder="Search">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit" type="button"><span class="glyphicon glyphicon-search"></span> submit</button>
+                        </span>
+                    </div><!-- /input-group -->
+                </div>
+            </div>
+            <div class="row show-grid">
+                <div class="col-lg-4">
+                    <!-- show-box -->
+                    <div id="sortable-div-show-box" class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Show BOX</h3>
+                        </div>
+                        <div class="alert tracinfo" id="show-box-info">
+                            <i class="icon-info-sign"></i>
+                            <span class="lang">Last Updated : <span class="date" id="show-box-date">2013-08-24</span></span>
+                            <span class="lang">｜</span>
+                            <span class="lang">Number of Current Box : <span class="current-box-num">9</span></span>
+                        </div>
+                        <div id="show-box" class="sortable-div trac-area-overflow trac-area-defult"></div>
+                    </div>
+                    <!-- /show-box -->
+                    <!-- non-costomers-box -->
+                    <div id="sortable-div-non-costomers-box" class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Non-customers BOX</h3>
+                        </div>
+                        <div class="alert tracinfo" id="non-customers-box-info">
+                            <i class="icon-info-sign"></i>
+                            <span class="lang">Last Updated : <span class="date" id="non-customers-box-date">2013-08-24</span></span>
+                            <span class="lang">｜</span>
+                            <span class="lang">Number of Current Box : <span class="current-box-num">9</span></span>
+                        </div>
+                        <div id="non-costomers-box" class="sortable-div trac-area-overflow trac-area-defult"></div>
+                    </div>
+                    <!-- /non-costomers-box -->
+                </div>
+                <div class="col-lg-4">
+                    <!-- sales-box -->
+                    <div id="sortable-div-sales-box" class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Sales BOX</h3>
+                        </div>
+                        <div class="alert tracinfo" id="sales-box-linfo">
+                            <i class="icon-info-sign"></i>
+                            <span class="lang">Last Updated : <span class="date" id="sales-box-date">2013-08-24</span></span>
+                            <span class="lang">｜</span>
+                            <span class="lang">Number of Current Box : <span class="current-box-num">9</span></span>
+                        </div>
+                        <div id="sales-box" class="sortable-div trac-area-overflow trac-area-sales"></div>
+                    </div>
+                    <!-- /sales-box -->
+                </div>
+                <div class="col-lg-4">
+                    <!-- order-box -->
+                    <div id="sortable-div-order-box" class="panel panel-success">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Order BOX</h3>
+                        </div>
+                        <div class="alert tracinfo" id="order-box-info">
+                            <i class="icon-info-sign"></i>
+                            <span class="lang">Last Updated : <span class="date" id="order-box-date">2013-08-24</span></span>
+                            <span class="lang">｜</span>
+                            <span class="lang">Number of Current Box : <span class="current-box-num">9</span></span>
+                        </div>
+                        <div id="order-box" class="sortable-div trac-area-overflow trac-area-defult"></div>
+                    </div>
+                    <!-- /order-box -->
+                    <!-- lost-box -->
+                    <div id="sortable-div-lost-box" class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Lost BOX</h3>
+                        </div>
+                        <div class="alert tracinfo" id="lost-box-info">
+                            <i class="icon-info-sign"></i>
+                            <span class="lang">Last Updated : <span class="date" id="lost-box-date">2013-08-24</span></span>
+                            <span class="lang">｜</span>
+                            <span class="lang">Number of Current Box : <span class="current-box-num">9</span></span>
+                        </div>
+                        <div id="lost-box" class="sortable-div trac-area-overflow trac-area-defult"></div>
+                    </div>
+                    <!-- /lost-box -->
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Trac name</h4>
+                  </div>
+                  <div class="modal-body">
+                    <ul class="nav nav-tabs nav-justified" id="infoTab">
+                        <li class="active">
+                            <a href="#basicInfo" data-toggle="tab">basicInfo</a>
+                        </li>
+                        <li>
+                            <a href="#moreInfo" data-toggle="tab">moreInfo</a>
+                        </li>
+                        <li>
+                            <a href="#tracInfo" data-toggle="tab">tracInfo</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                      <div class="tab-pane active" id="basicInfo">
+                        <!-- basicInfo -->
+                        <form role="form" class="form-horizontal">
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <div class="form-group">
+                                <label for="InputTracname">Trac Name</label>
+                                <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter Tracname">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label for="selectAccuracy">Accuracy</label>
+                                <select class="form-control input-sm" name="accuracy" id="selectAccuracy">
+                                  <option>S</option>
+                                  <option>A</option>
+                                  <option>B</option>
+                                  <option>C</option>
+                                  <option>D</option>
+                                  <option>E</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label for="selectChargeParson">ChargeParson</label>
+                                <select class="form-control input-sm" name="charge_parson" id="selectChargeParson">
+                                    <option>小田 和久</option>
+                                    <option>横尾 結子</option>
+                                    <option>小笠原 沙知絵</option>
+                                    <option>平田 米蔵</option>
+                                    <option>国分 春樹</option>
+                                    <option>立川 花緑</option>
+                                    <option>宮川 光洋</option>
+                                    <option>浜田 明宏</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                        <!-- /basicInfo -->
+                      </div>
+                      <div class="tab-pane" id="moreInfo">
+                        <!-- moreInfo -->
+                        <form role="form" class="form-horizontal">
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label for="InputTracname"><span class="ui-datepicker-trigger glyphicon glyphicon-calendar"></span> Regist Date</label>
+                                <input type="text" class="form-control input-sm" id="regist_date" placeholder="Enter RegistData">                              
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label for="InputTracname"><span class="ui-datepicker-trigger glyphicon glyphicon-calendar"></span> Trac Start Data</label>
+                                <input type="text" class="form-control input-sm" id="start_date" placeholder="Enter StartData">
+                              </div>
+                            </div>
+                          </div>
+                          <hr />
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label for="InputTracname">Company Name</label>
+                                <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter CompanyName">
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label for="InputTracname">Company Address</label>
+                                <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter Address">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label for="InputTracname">Company URL</label>
+                                <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter URL">
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label for="InputTracname">Client personnel</label>
+                                <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter Personnel">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label for="InputTracname">Client MailAddress</label>
+                                <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter MainAddress">
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label for="InputTracname">Client TEL</label>
+                                <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter TEL">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label for="InputTracname">Client Keyman</label>
+                                <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter Keymanq">
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                            </div>
+                          </div>
+                          <hr />
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <div class="form-group">
+                                <label for="InputTracname">
+                                    <input type="checkbox" value="" />
+                                    Listed company
+                                </label>
+                              </div>
+                              <div class="form-group">
+                                <label for="selectAccuracy">Industry</label>
+                                <select class="form-control input-sm" name="accuracy" id="selectAccuracy">
+                                    <option>印刷</option>
+                                    <option>機会・金属・工具系メーカ</option>
+                                    <option>機会・金属・工具系商社</option>
+                                </select>
+                              </div>
+                              <div class="form-group">
+                                <label for="InputTracname">Work Practices</label>
+                                <textarea class="form-control" rows="5"></textarea>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                        <!-- /moreInfo -->
+                      </div>
+                      <div class="tab-pane" id="tracInfo">
+                        <!-- tracInfo< -->
+                        <buuton id="add_sales_reports" class="btn btn-primary">Add Sales Reports</buuton>
+                        <hr />
+                        <div id="sales-reports-area">
+                          <div class="panel-group" id="accordion" style="padding-top: 10px">
+                            <div class="panel panel-warning">
+                              <div class="panel-heading">
+                                <h4 class="panel-title">
+                                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                                    Sales Reports [2013/10/1] - Visit before -
+                                  </a>
+                                </h4>
+                              </div>
+                              <div id="collapse1" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                  <form role="form" class="form-horizontal">
+                                    <div class="row">
+                                      <div class="col-lg-12">                                
+                                        <div class="radio">
+                                          <label>
+                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                            Visit before
+                                          </label>
+                                        </div>
+                                        <div class="radio">
+                                          <label>
+                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                            After the visit
+                                          </label>
+                                        </div>
+                                      </div>
+                                    </div>  
+                                    <hr />
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <div class="form-group">
+                                          <label for="InputTracname"><span class="ui-datepicker-trigger glyphicon glyphicon-calendar"></span> Visit Date</label>
+                                          <input type="text" class="form-control input-sm" id="visit_date" placeholder="Enter VisitData">
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                        <div class="form-group">
+                                          <label for="InputTracname">Department Visit</label>
+                                          <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter DepartmentVisit">
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <div class="form-group">
+                                          <label for="InputTracname">Department Parsonnel</label>
+                                          <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter DepartmentParsonnel">
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                        <div class="form-group">
+                                          <label for="InputTracname">Department Address</label>
+                                          <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter DepartmentAddress">
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-lg-6">    
+                                        <div class="form-group">
+                                          <label for="InputTracname">Client Attended</label>
+                                          <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter ClientAttended">
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6">  
+                                        <div class="form-group">
+                                          <label for="InputTracname">Our Company Attended</label>
+                                          <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter Our CompanyAttended">
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-lg-12">  
+                                        <div class="form-group">
+                                          <label for="InputTracname">Sales Content</label>
+                                          <textarea class="form-control" rows="5"></textarea>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-lg-12">    
+                                        <div class="form-group">
+                                          <label for="InputTracname">Task</label>
+                                          <textarea class="form-control" rows="5"></textarea>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="panel-group" id="accordion" style="padding-top: 10px">
+                            <div class="panel panel-success">
+                              <div class="panel-heading">
+                                <h4 class="panel-title">
+                                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                                    Sales Reports [2013/9/25] - Visit After -
+                                  </a>
+                                </h4>
+                              </div>
+                              <div id="collapse2" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                  <form role="form" class="form-horizontal">
+                                    <div class="row">
+                                      <div class="col-lg-12">                                
+                                        <div class="radio">
+                                          <label>
+                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                            Visit before
+                                          </label>
+                                        </div>
+                                        <div class="radio">
+                                          <label>
+                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                            After the visit
+                                          </label>
+                                        </div>
+                                      </div>
+                                    </div>  
+                                    <hr />
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <div class="form-group">
+                                          <label for="InputTracname">Visit Date</label>
+                                          <input type="text" class="form-control input-sm" id="visit_date" placeholder="Enter VisitData">
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                        <div class="form-group">
+                                          <label for="InputTracname">Department Visit</label>
+                                          <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter DepartmentVisit">
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <div class="form-group">
+                                          <label for="InputTracname">Department Parsonnel</label>
+                                          <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter DepartmentParsonnel">
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                        <div class="form-group">
+                                          <label for="InputTracname">Department Address</label>
+                                          <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter DepartmentAddress">
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-lg-6">    
+                                        <div class="form-group">
+                                          <label for="InputTracname">Client Attended</label>
+                                          <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter ClientAttended">
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6">  
+                                        <div class="form-group">
+                                          <label for="InputTracname">Our Company Attended</label>
+                                          <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter Our CompanyAttended">
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-lg-12">  
+                                        <div class="form-group">
+                                          <label for="InputTracname">Sales Content</label>
+                                          <textarea class="form-control" rows="5"></textarea>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-lg-12">    
+                                        <div class="form-group">
+                                          <label for="InputTracname">Task</label>
+                                          <textarea class="form-control" rows="5"></textarea>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </form>                            
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="panel-group" id="accordion" style="padding-top: 10px">
+                            <div class="panel panel-success">
+                              <div class="panel-heading">
+                                <h4 class="panel-title">
+                                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                                    Sales Reports [2013/9/20] - Visit After -
+                                  </a>
+                                </h4>
+                              </div>
+                              <div id="collapse3" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                  <form role="form" class="form-horizontal">
+                                    <div class="row">
+                                      <div class="col-lg-12">                                
+                                        <div class="radio">
+                                          <label>
+                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                            Visit before
+                                          </label>
+                                        </div>
+                                        <div class="radio">
+                                          <label>
+                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                            After the visit
+                                          </label>
+                                        </div>
+                                      </div>
+                                    </div>  
+                                    <hr />
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <div class="form-group">
+                                          <label for="InputTracname">Visit Date</label>
+                                          <input type="text" class="form-control input-sm" id="visit_date" placeholder="Enter VisitData">
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                        <div class="form-group">
+                                          <label for="InputTracname">Department Visit</label>
+                                          <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter DepartmentVisit">
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <div class="form-group">
+                                          <label for="InputTracname">Department Parsonnel</label>
+                                          <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter DepartmentParsonnel">
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                        <div class="form-group">
+                                          <label for="InputTracname">Department Address</label>
+                                          <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter DepartmentAddress">
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-lg-6">    
+                                        <div class="form-group">
+                                          <label for="InputTracname">Client Attended</label>
+                                          <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter ClientAttended">
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6">  
+                                        <div class="form-group">
+                                          <label for="InputTracname">Our Company Attended</label>
+                                          <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter Our CompanyAttended">
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-lg-12">  
+                                        <div class="form-group">
+                                          <label for="InputTracname">Sales Content</label>
+                                          <textarea class="form-control" rows="5"></textarea>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-lg-12">    
+                                        <div class="form-group">
+                                          <label for="InputTracname">Task</label>
+                                          <textarea class="form-control" rows="5"></textarea>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </form>                            
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- /tracInfo< -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->

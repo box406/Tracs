@@ -1,6 +1,6 @@
 angular.module('app')
   .controller("loginController", function($scope, $location){
-    $scope.loginInfo ={username: "", password: ""};
+    $scope.loginInfo = {username: "", password: ""};
 
     $scope.login = function() {
       $location.path("/trac")
@@ -8,6 +8,78 @@ angular.module('app')
   })
   .controller("tracController", function($scope){
 
+    $scope.project = {name: ""};
+
+    $scope.addSelectParsonClick = function() {
+
+      var project_name = $scope.project.name;
+      $scope.project.name = "";
+
+      $scope.showBox = "vvMarquee";
+
+      // 担当者、本来はシステムから取得するが今はダミー
+      charge_parson = $(this).text();
+
+      // add-tracをdisabledに戻す
+      $("#add-trac").addClass('disabled');
+
+      // dummy
+      trac_id = Math.floor(Math.random() * 1000000);
+
+      // init
+      add_code = "";
+
+      add_code = ' <div id="trac_' + trac_id + '" title="' + trac_id + '" class="ui_state_default trac">'
+      add_code += '  <div class="alert alert-warning">';
+      add_code += '    <span class="warning glyphicon glyphicon-warning-sign" style="color:red;"></span>';
+      add_code += '    <i class="icon-ticket"></i> ' + trac;
+      add_code += '    <div class="pull-right">';
+      add_code += '      <small>' + charge_parson + '</small>';
+      add_code += '      |';
+      add_code += '      <div class="btn-group">';
+      add_code += '        <button id="accuracy" type="button" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown">';
+      add_code += '          A <span class="caret"></span>';
+      add_code += '        </button>';
+      add_code += '        <ul class="dropdown-menu" role="menu">';
+      add_code += '          <li><a class="trac-accuracy" href="#trac-accuracy">S</a></li>';
+      add_code += '          <li><a class="trac-accuracy" href="#trac-accuracy">A</a></li>';
+      add_code += '          <li><a class="trac-accuracy" href="#trac-accuracy">B</a></li>';
+      add_code += '          <li><a class="trac-accuracy" href="#trac-accuracy">C</a></li>';
+      add_code += '          <li><a class="trac-accuracy" href="#trac-accuracy">D</a></li>';
+      add_code += '          <li><a class="trac-accuracy" href="#trac-accuracy">E</a></li>';
+      add_code += '        </ul>';
+      add_code += '      </div>';
+      add_code += '      <button type="button" class="trac-detail btn btn-xs btn-warning" data-toggle="modal" href="#myModal">Detail</button>';
+      add_code += '      |';
+      add_code += '      <input type="checkbox" name="delete" id="trac-delete" />';
+      add_code += '    </div>';
+      add_code += '  </div>';
+      add_code += '</div>';
+
+      $("#show-box").append(add_code);
+
+      sort();
+
+      addTrac();        
+    }
+  })
+  .directive('vvMarquee', function ($parse) {
+    return {
+      restrict: 'A',
+      require: ['?ngModel'],
+      replace: true,
+      template: '<marquee/>',
+      link: function (scope, element, attrs) {
+        scope.$watch(attrs.ngModel, function (newVal) {
+          var getter = $parse(attrs.ngModel);
+          var model = getter(scope);
+
+          element.html(model);
+        });
+      }
+    };
+  });
+/*
 $(function(){
 
     // 
@@ -139,68 +211,174 @@ $(function(){
 
     // add trac buttonの操作、入力があればdisabledを解除する
     $("#input-trac-area").keypress(function(event) {
-        /* Act on the event */
+        //Act on the event
         $("#add-trac").removeClass('disabled');        
     });
 
     $("#input-trac-area").keydown(function(event) {
-        /* Act on the event */
+        // Act on the event
         $("#add-trac").removeClass('disabled');        
     });
 
     // click add-sales button
-    $(".add-trac").click(function(){
+//    $(".add-trac").click(function(){
+//
+//        // add trac area に入力された値の受取
+//        trac = $("#input-trac-area").val();
+//        $("#input-trac-area").val("");
+//
+//        // 担当者、本来はシステムから取得するが今はダミー
+//        charge_parson = $(this).text();
+//
+//        // add-tracをdisabledに戻す
+//        $("#add-trac").addClass('disabled');
+//
+//        // dummy
+//        trac_id = Math.floor(Math.random() * 1000000);
+//
+//        // init
+//        add_code = "";
+//
+//        add_code = ' <div id="trac_' + trac_id + '" title="' + trac_id + '" class="ui_state_default trac">'
+//        add_code += '  <div class="alert alert-warning">';
+//        add_code += '    <span class="warning glyphicon glyphicon-warning-sign" style="color:red;"></span>';
+//        add_code += '    <i class="icon-ticket"></i> ' + trac;
+//        add_code += '    <div class="pull-right">';
+//        add_code += '      <small>' + charge_parson + '</small>';
+//        add_code += '      |';
+//        add_code += '      <div class="btn-group">';
+//        add_code += '        <button id="accuracy" type="button" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown">';
+//        add_code += '          A <span class="caret"></span>';
+//        add_code += '        </button>';
+//        add_code += '        <ul class="dropdown-menu" role="menu">';
+//        add_code += '          <li><a class="trac-accuracy" href="#trac-accuracy">S</a></li>';
+//        add_code += '          <li><a class="trac-accuracy" href="#trac-accuracy">A</a></li>';
+//        add_code += '          <li><a class="trac-accuracy" href="#trac-accuracy">B</a></li>';
+//        add_code += '          <li><a class="trac-accuracy" href="#trac-accuracy">C</a></li>';
+//        add_code += '          <li><a class="trac-accuracy" href="#trac-accuracy">D</a></li>';
+//        add_code += '          <li><a class="trac-accuracy" href="#trac-accuracy">E</a></li>';
+//        add_code += '        </ul>';
+//        add_code += '      </div>';
+//        add_code += '      <button type="button" class="trac-detail btn btn-xs btn-warning" data-toggle="modal" href="#myModal">Detail</button>';
+//        add_code += '      |';
+//        add_code += '      <input type="checkbox" name="delete" id="trac-delete" />';
+//        add_code += '    </div>';
+//        add_code += '  </div>';
+//        add_code += '</div>';
+//
+//        $("#show-box").append(add_code);
+//
+//        sort();
+//
+//        addTrac();
+//    });
 
-        // add trac area に入力された値の受取
-        trac = $("#input-trac-area").val();
-        $("#input-trac-area").val("");
+    // 
+    // sortable
+    //
 
-        // 担当者、本来はシステムから取得するが今はダミー
-        charge_parson = $(this).text();
+    function sort() {
 
-        // add-tracをdisabledに戻す
-        $("#add-trac").addClass('disabled');
+        for (trac_area in TRAC_AREA_INFO) {
 
-        // dummy
-        trac_id = Math.floor(Math.random() * 1000000);
+            // move&sort trac area
+            $('#' + TRAC_AREA_INFO[trac_area]).sortable({
+                connectWith: ".sortable-div", 
+                placeholder: "",
+                cursor: "move",
+                opacity: 0.5,
+                revert: true,
+                scroll: true,
+                receive: function( event, ui ) {
 
-        // init
-        add_code = "";
+                    // move the trac area
+                    chengeArea(this, ui.item.attr("title"), $(this).attr("id"));
+                },
+                update: function(event, ui) {
 
-        add_code = ' <div id="trac_' + trac_id + '" title="' + trac_id + '" class="ui_state_default trac">'
-        add_code += '  <div class="alert alert-warning">';
-        add_code += '    <span class="warning glyphicon glyphicon-warning-sign" style="color:red;"></span>';
-        add_code += '    <i class="icon-ticket"></i> ' + trac;
-        add_code += '    <div class="pull-right">';
-        add_code += '      <small>' + charge_parson + '</small>';
-        add_code += '      |';
-        add_code += '      <div class="btn-group">';
-        add_code += '        <button id="accuracy" type="button" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown">';
-        add_code += '          A <span class="caret"></span>';
-        add_code += '        </button>';
-        add_code += '        <ul class="dropdown-menu" role="menu">';
-        add_code += '          <li><a class="trac-accuracy" href="#trac-accuracy">S</a></li>';
-        add_code += '          <li><a class="trac-accuracy" href="#trac-accuracy">A</a></li>';
-        add_code += '          <li><a class="trac-accuracy" href="#trac-accuracy">B</a></li>';
-        add_code += '          <li><a class="trac-accuracy" href="#trac-accuracy">C</a></li>';
-        add_code += '          <li><a class="trac-accuracy" href="#trac-accuracy">D</a></li>';
-        add_code += '          <li><a class="trac-accuracy" href="#trac-accuracy">E</a></li>';
-        add_code += '        </ul>';
-        add_code += '      </div>';
-        add_code += '      <button type="button" class="trac-detail btn btn-xs btn-warning" data-toggle="modal" href="#myModal">Detail</button>';
-        add_code += '      |';
-        add_code += '      <input type="checkbox" name="delete" id="trac-delete" />';
-        add_code += '    </div>';
-        add_code += '  </div>';
-        add_code += '</div>';
+                    // sort the trac area
+                    trac_area_name = $(this).attr("id")
+                    console.log($('#' + trac_area_name).sortable("toArray").join());
+                }
+            });
 
-        $("#show-box").append(add_code);
+        }
+    }
 
-        sort();
+    // 
+    // ajax
+    //
+    function sendAjax(type, url, option) {
+        // post to server
+        $.ajax({
+            type: 'post',
+            url: "dummy.php",
+            timeout : 5000,
+            data: {
+                'trac_id': trac_id,
+                'place': trac_area
+            },
+            success: function(data, dataType) {
+                console.log(data);
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
 
-        addTrac();
-    });
+            }
+        });
+    }
 
+
+    //
+    // move trac function
+    //
+
+    function addTrac() {
+        console.log("addTrac");
+    }
+
+    function chengeArea(obj, trac_id, trac_area) {
+        switch (trac_area) {
+            case "show-box":
+                showBox(obj, trac_id, trac_area);
+                break;
+            case "non-costomers-box":
+                nonCustomersBox(obj, trac_id, trac_area);
+                break;
+            case "sales-box":
+                salesBox(obj, trac_id, trac_area);
+                break;
+            case "order-box":
+                orderBox(obj, trac_id, trac_area);
+                break;
+            case "lost-box":
+                lostBox(obj, trac_id, trac_area);
+                break;
+        }
+    }
+    
+    function showBox(obj, trac_id, trac_area) {
+        console.log("showBox:" + ", trac_id:" + trac_id + ", trac_area:" + trac_area);
+    }
+
+    function salesBox(obj, trac_id, trac_area) {
+        console.log("salesTrac:" + ", trac_id:" + trac_id + ", trac_area:" + trac_area);
+    }
+
+    function orderBox(obj, trac_id, trac_area) {
+        console.log("orderBox:" + ", trac_id:" + trac_id + ", trac_area:" + trac_area);
+    }
+
+    function lostBox(obj, trac_id, trac_area) {
+        console.log("lostBox:" + ", trac_id:" + trac_id + ", trac_area:" + trac_area);
+    }
+
+    function nonCustomersBox(obj, trac_id, trac_area) {
+        console.log("nonCustomersBox:" + ", trac_id:" + trac_id + ", trac_area:" + trac_area);
+    }
+
+    function accuracy() {
+        console.log("test");
+    }
 
     //
     // trac button 
@@ -284,17 +462,16 @@ $(function(){
 
     // add trac buttonの操作、入力があればdisabledを解除する
     $("#project_name").keypress(function(event) {
-        /* Act on the event */
+        // Act on the event
         $("#add_project").removeClass('disabled');        
     });
 
     $("#project_name").keydown(function(event) {
-        /* Act on the event */
+        // Act on the event
         $("#add_project").removeClass('disabled');        
     });
 
 });
 
-
-  });
+*/
 

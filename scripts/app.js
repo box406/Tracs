@@ -1,6 +1,10 @@
-var app = angular.module('app', [])
+var app = angular.module('app', [
+  'ngResource',
+  'ngRoute'
+]);
 
-app.config(function($routeProvider) {
+app.config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider) {
+
   $routeProvider.when('/', {
     templateUrl: 'view/login.html', 
     controller: 'loginController'
@@ -10,6 +14,5 @@ app.config(function($routeProvider) {
     templateUrl: 'view/trac.html', 
     controller: 'tracController'
   });
-
 });
 

@@ -8,3 +8,4 @@
  */
 
 echo $_POST["place"] . ":" . $_POST["trac_id"] . "ajax ok";
+

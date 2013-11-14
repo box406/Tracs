@@ -14,5 +14,5 @@ app.config(["$routeProvider", "$locationProvider", function($routeProvider, $loc
     templateUrl: 'view/trac.html', 
     controller: 'tracController'
   });
-});
+}]);
 

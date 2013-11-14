@@ -219,7 +219,6 @@ $(function(){
                     console.log($('#' + trac_area_name).sortable("toArray").join());
                 }
             });
-
         }
     }
 

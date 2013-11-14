@@ -1,124 +1,153 @@
             <div class="row show-grid">
-                <div class="col-lg-12">
-                    <select class="form-control input-small" name="chenge-project" id="chenge-project">
-                        <option value="">Chenge Project</option>
-                        <option value="">Digup</option>
-                    </select>
-                    <hr />
-                </div>
+              <div class="col-lg-12">
+                <select class="form-control input-small" name="chenge-project" id="chenge-project">
+                  <option value="">Chenge Project</option>
+                  <option value="">Digup</option>
+                </select>
+                <hr />
+              </div>
             </div>
             <div class="row show-grid">
-                <div class="col-lg-8">
-                    <div class="form-inline">
-                        <div class="form-group">
-                            <input type="text" ng-model="project.name" id="input-trac-area" class="form-control" placeholder="Enter the Project" />
-                        </div>
-                        <div class="btn-group">
-                            <button id="add-trac" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                <span class="glyphicon glyphicon-pushpin"></span> Add Trac
+              <div class="col-lg-8">
+                <div class="form-inline">
+                  <div class="form-group">
+                    <input type="text" ng-model="projectName" id="input-trac-area" class="form-control" placeholder="Enter the Project" />
+                  </div>
+                  <div class="btn-group">
+                    <button ng-disabled="!projectName" id="add-trac" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                      <span class="glyphicon glyphicon-pushpin"></span> Add Trac
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li role="presentation" class="dropdown-header">第1営業部</li>
+                      <li><a class="add-trac" href="" ng-click="addSelectParsonClick(1)">小田 和久</a></li>
+                      <li><a class="add-trac" href="" ng-click="addSelectParsonClick(2)">横尾 結子</a></li>
+                      <li><a class="add-trac" href="" ng-click="addSelectParsonClick(3)">小笠原 沙知絵</a></li>
+                      <li><a class="add-trac" href="" ng-click="addSelectParsonClick(4)">平田 米蔵</a></li>
+                      <li class="divider"></li>
+                      <li role="presentation" class="dropdown-header">第2営業部</li>
+                      <li><a class="add-trac" href="" ng-click="addSelectParsonClick(5)">国分 春樹</a></li>
+                      <li><a class="add-trac" href="" ng-click="addSelectParsonClick(6)">立川 花緑</a></li>
+                      <li><a class="add-trac" href="" ng-click="addSelectParsonClick(7)">宮川 光洋</a></li>
+                      <li><a class="add-trac" href="" ng-click="addSelectParsonClick(8)">浜田 明宏</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="input-group">
+                  <input type="text" class="form-control" id="search" placeholder="Search">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" id="search-submit" type="button"><span class="glyphicon glyphicon-search"></span> submit</button>
+                  </span>
+                </div><!-- /input-group -->
+              </div>
+            </div>
+            <div class="row show-grid">
+              <div class="col-lg-4">
+                <!-- show-box -->
+                <div id="sortable-div-show-box" class="panel panel-primary">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Show BOX</h3>
+                  </div>
+                  <div class="alert tracinfo" id="show-box-info">
+                    <i class="icon-info-sign"></i>
+                    <span class="lang">Last Updated : <span class="date" id="show-box-date">2013-08-24</span></span>
+                    <span class="lang">｜</span>
+                    <span class="lang">Number of Current Box : <span class="current-box-num">9</span></span>
+                  </div>
+                  <div id="show-box" class="sortable-div trac-area-overflow trac-area-defult" ng-model="showBox" add-trac>
+                    <!-- showbox tracs -->
+                    <div show-box-trac ng-repeat="trac in showBoxTracs" id="trac_{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
+                      <div class="alert alert-warning">
+                        <span class="warning glyphicon glyphicon-warning-sign" style="color:red;"></span>
+                        <i class="icon-ticket"></i>{{trac.trac_name}}
+                        <div class="pull-right">
+                          <small>{{trac.charge_parson}}</small>
+                          |
+                          <div class="btn-group">
+                            <button id="accuracy" type="button" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown">
+                              A <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
-                                <li role="presentation" class="dropdown-header">第1営業部</li>
-                                <li><a class="add-trac" href="" ng-click="addSelectParsonClick()">小田 和久</a></li>
-                                <li><a class="add-trac" href="" ng-click="addSelectParsonClick()">横尾 結子</a></li>
-                                <li><a class="add-trac" href="" ng-click="addSelectParsonClick()">小笠原 沙知絵</a></li>
-                                <li><a class="add-trac" href="" ng-click="addSelectParsonClick()">平田 米蔵</a></li>
-                                <li class="divider"></li>
-                                <li role="presentation" class="dropdown-header">第2営業部</li>
-                                <li><a class="add-trac" href="" ng-click="addSelectParsonClick()">国分 春樹</a></li>
-                                <li><a class="add-trac" href="" ng-click="addSelectParsonClick()">立川 花緑</a></li>
-                                <li><a class="add-trac" href="" ng-click="addSelectParsonClick()">宮川 光洋</a></li>
-                                <li><a class="add-trac" href="" ng-click="addSelectParsonClick()">浜田 明宏</a></li>
+                              <li><a class="trac-accuracy" href="#trac-accuracy">S</a></li>
+                              <li><a class="trac-accuracy" href="#trac-accuracy">A</a></li>
+                              <li><a class="trac-accuracy" href="#trac-accuracy">B</a></li>
+                              <li><a class="trac-accuracy" href="#trac-accuracy">C</a></li>
+                              <li><a class="trac-accuracy" href="#trac-accuracy">D</a></li>
+                              <li><a class="trac-accuracy" href="#trac-accuracy">E</a></li>
                             </ul>
+                          </div>
+                          <button type="button" class="trac-detail btn btn-xs btn-warning" data-toggle="modal" href="#myModal">Detail</button>
+                          |
+                          <input type="checkbox" name="delete" id="trac-delete" />
                         </div>
+                      </div>
                     </div>
+                    <!-- /showbox tracs -->
+                  </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="search" placeholder="Search">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" id="search-submit" type="button"><span class="glyphicon glyphicon-search"></span> submit</button>
-                        </span>
-                    </div><!-- /input-group -->
+                <!-- /show-box -->
+                <!-- non-costomers-box -->
+                <div id="sortable-div-non-costomers-box" class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Non-customers BOX</h3>
+                  </div>
+                  <div class="alert tracinfo" id="non-customers-box-info">
+                    <i class="icon-info-sign"></i>
+                    <span class="lang">Last Updated : <span class="date" id="non-customers-box-date">2013-08-24</span></span>
+                    <span class="lang">｜</span>
+                    <span class="lang">Number of Current Box : <span class="current-box-num">9</span></span>
+                  </div>
+                  <div id="non-costomers-box" class="sortable-div trac-area-overflow trac-area-defult"></div>
                 </div>
-            </div>
-            <div class="row show-grid">
-                <div class="col-lg-4">
-                    <!-- show-box -->
-                    <div id="sortable-div-show-box" class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Show BOX</h3>
-                        </div>
-                        <div class="alert tracinfo" id="show-box-info">
-                            <i class="icon-info-sign"></i>
-                            <span class="lang">Last Updated : <span class="date" id="show-box-date">2013-08-24</span></span>
-                            <span class="lang">｜</span>
-                            <span class="lang">Number of Current Box : <span class="current-box-num">9</span></span>
-                        </div>
-                        <div id="show-box" class="sortable-div trac-area-overflow trac-area-defult" ng-model="showBox" add-trac></div>
-                    </div>
-                    <!-- /show-box -->
-                    <!-- non-costomers-box -->
-                    <div id="sortable-div-non-costomers-box" class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Non-customers BOX</h3>
-                        </div>
-                        <div class="alert tracinfo" id="non-customers-box-info">
-                            <i class="icon-info-sign"></i>
-                            <span class="lang">Last Updated : <span class="date" id="non-customers-box-date">2013-08-24</span></span>
-                            <span class="lang">｜</span>
-                            <span class="lang">Number of Current Box : <span class="current-box-num">9</span></span>
-                        </div>
-                        <div id="non-costomers-box" class="sortable-div trac-area-overflow trac-area-defult"></div>
-                    </div>
-                    <!-- /non-costomers-box -->
+                <!-- /non-costomers-box -->
+              </div>
+              <div class="col-lg-4">
+                <!-- sales-box -->
+                <div id="sortable-div-sales-box" class="panel panel-info">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Sales BOX</h3>
+                  </div>
+                  <div class="alert tracinfo" id="sales-box-linfo">
+                    <i class="icon-info-sign"></i>
+                    <span class="lang">Last Updated : <span class="date" id="sales-box-date">2013-08-24</span></span>
+                    <span class="lang">｜</span>
+                    <span class="lang">Number of Current Box : <span class="current-box-num">9</span></span>
+                  </div>
+                  <div id="sales-box" class="sortable-div trac-area-overflow trac-area-sales"></div>
                 </div>
-                <div class="col-lg-4">
-                    <!-- sales-box -->
-                    <div id="sortable-div-sales-box" class="panel panel-info">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Sales BOX</h3>
-                        </div>
-                        <div class="alert tracinfo" id="sales-box-linfo">
-                            <i class="icon-info-sign"></i>
-                            <span class="lang">Last Updated : <span class="date" id="sales-box-date">2013-08-24</span></span>
-                            <span class="lang">｜</span>
-                            <span class="lang">Number of Current Box : <span class="current-box-num">9</span></span>
-                        </div>
-                        <div id="sales-box" class="sortable-div trac-area-overflow trac-area-sales"></div>
-                    </div>
-                    <!-- /sales-box -->
+                <!-- /sales-box -->
+              </div>
+              <div class="col-lg-4">
+                <!-- order-box -->
+                <div id="sortable-div-order-box" class="panel panel-success">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Order BOX</h3>
+                  </div>
+                  <div class="alert tracinfo" id="order-box-info">
+                    <i class="icon-info-sign"></i>
+                    <span class="lang">Last Updated : <span class="date" id="order-box-date">2013-08-24</span></span>
+                    <span class="lang">｜</span>
+                    <span class="lang">Number of Current Box : <span class="current-box-num">9</span></span>
+                  </div>
+                  <div id="order-box" class="sortable-div trac-area-overflow trac-area-defult"></div>
                 </div>
-                <div class="col-lg-4">
-                    <!-- order-box -->
-                    <div id="sortable-div-order-box" class="panel panel-success">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Order BOX</h3>
-                        </div>
-                        <div class="alert tracinfo" id="order-box-info">
-                            <i class="icon-info-sign"></i>
-                            <span class="lang">Last Updated : <span class="date" id="order-box-date">2013-08-24</span></span>
-                            <span class="lang">｜</span>
-                            <span class="lang">Number of Current Box : <span class="current-box-num">9</span></span>
-                        </div>
-                        <div id="order-box" class="sortable-div trac-area-overflow trac-area-defult"></div>
-                    </div>
-                    <!-- /order-box -->
-                    <!-- lost-box -->
-                    <div id="sortable-div-lost-box" class="panel panel-danger">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Lost BOX</h3>
-                        </div>
-                        <div class="alert tracinfo" id="lost-box-info">
-                            <i class="icon-info-sign"></i>
-                            <span class="lang">Last Updated : <span class="date" id="lost-box-date">2013-08-24</span></span>
-                            <span class="lang">｜</span>
-                            <span class="lang">Number of Current Box : <span class="current-box-num">9</span></span>
-                        </div>
-                        <div id="lost-box" class="sortable-div trac-area-overflow trac-area-defult"></div>
-                    </div>
-                    <!-- /lost-box -->
+                <!-- /order-box -->
+                <!-- lost-box -->
+                <div id="sortable-div-lost-box" class="panel panel-danger">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Lost BOX</h3>
+                  </div>
+                  <div class="alert tracinfo" id="lost-box-info">
+                    <i class="icon-info-sign"></i>
+                    <span class="lang">Last Updated : <span class="date" id="lost-box-date">2013-08-24</span></span>
+                    <span class="lang">｜</span>
+                    <span class="lang">Number of Current Box : <span class="current-box-num">9</span></span>
+                  </div>
+                  <div id="lost-box" class="sortable-div trac-area-overflow trac-area-defult"></div>
                 </div>
+                <!-- /lost-box -->
+              </div>
             </div>
             <!-- Modal -->
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -130,15 +159,15 @@
                   </div>
                   <div class="modal-body">
                     <ul class="nav nav-tabs nav-justified" id="infoTab">
-                        <li class="active">
-                            <a href="#basicInfo" data-toggle="tab">basicInfo</a>
-                        </li>
-                        <li>
-                            <a href="#moreInfo" data-toggle="tab">moreInfo</a>
-                        </li>
-                        <li>
-                            <a href="#tracInfo" data-toggle="tab">tracInfo</a>
-                        </li>
+                      <li class="active">
+                        <a href="#basicInfo" data-toggle="tab">basicInfo</a>
+                      </li>
+                      <li>
+                        <a href="#moreInfo" data-toggle="tab">moreInfo</a>
+                      </li>
+                      <li>
+                        <a href="#tracInfo" data-toggle="tab">tracInfo</a>
+                      </li>
                     </ul>
                     <div class="tab-content">
                       <div class="tab-pane active" id="basicInfo">
@@ -260,16 +289,16 @@
                             <div class="col-lg-12">
                               <div class="form-group">
                                 <label for="InputTracname">
-                                    <input type="checkbox" value="" />
-                                    Listed company
+                                  <input type="checkbox" value="" />
+                                  Listed company
                                 </label>
                               </div>
                               <div class="form-group">
                                 <label for="selectAccuracy">Industry</label>
                                 <select class="form-control input-sm" name="accuracy" id="selectAccuracy">
-                                    <option>印刷</option>
-                                    <option>機会・金属・工具系メーカ</option>
-                                    <option>機会・金属・工具系商社</option>
+                                  <option>印刷</option>
+                                  <option>機会・金属・工具系メーカ</option>
+                                  <option>機会・金属・工具系商社</option>
                                 </select>
                               </div>
                               <div class="form-group">

@@ -59,22 +59,17 @@
                     <!-- showbox tracs -->
                     <div show-box-trac ng-repeat="trac in showBoxTracs" id="trac_{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
                       <div class="alert alert-warning">
-                        <span class="warning glyphicon glyphicon-warning-sign" style="color:red;"></span>
+                        <span class="warning glyphicon glyphicon-warning-sign"></span>
                         <i class="icon-ticket"></i>{{trac.trac_name}}
                         <div class="pull-right">
                           <small>{{trac.charge_parson}}</small>
                           |
                           <div class="btn-group">
                             <button id="accuracy" type="button" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown">
-                              A <span class="caret"></span>
+                              {{trac.accuracyDefault}} <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
-                              <li><a class="trac-accuracy" href="#trac-accuracy">S</a></li>
-                              <li><a class="trac-accuracy" href="#trac-accuracy">A</a></li>
-                              <li><a class="trac-accuracy" href="#trac-accuracy">B</a></li>
-                              <li><a class="trac-accuracy" href="#trac-accuracy">C</a></li>
-                              <li><a class="trac-accuracy" href="#trac-accuracy">D</a></li>
-                              <li><a class="trac-accuracy" href="#trac-accuracy">E</a></li>
+                              <li ng-repeat="accuracy in trac.accuracys"><a class="trac-accuracy" ng-click="changeAccuracyClick('{{accuracy.accuracy}}')" href="">{{accuracy.accuracy}}</a></li>
                             </ul>
                           </div>
                           <button type="button" class="trac-detail btn btn-xs btn-warning" data-toggle="modal" href="#myModal">Detail</button>

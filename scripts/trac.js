@@ -157,7 +157,7 @@ $(function(){
         // init
         add_code = "";
 
-        add_code = ' <div id="trac_' + trac_id + '" title="' + trac_id + '" class="ui_state_default trac">'
+        add_code = ' <div id="trac_' + trac_id + '" title="' + trac_id + '" class="ui_state_default trac">';
         add_code += '  <div class="alert alert-warning">';
         add_code += '    <span class="warning glyphicon glyphicon-warning-sign" style="color:red;"></span>';
         add_code += '    <i class="icon-ticket"></i> ' + trac;

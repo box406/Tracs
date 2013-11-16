@@ -17,11 +17,12 @@ app.directive("showBoxTrac", function(){
           receive: function( event, ui ) {
             // move the trac area
             //chengeArea(this, ui.item.attr("title"), $(this).attr("id"));
+            console.log(this, ui.item.attr("title"), $(this).attr("id"));
           },
           update: function(event, ui) {
             // sort the trac area
-            //trac_area_name = $(this).attr("id")
-            //console.log($('#' + trac_area_name).sortable("toArray").join());
+            trac_area_name = $(this).attr("id")
+            console.log($('#' + trac_area_name).sortable("toArray").join());
           }
         });
       }

@@ -1,13 +1,3 @@
 <?php
-
-$accuracy_info = [
-    ["accuracy" => "A"],
-    ["accuracy" => "B"],
-    ["accuracy" => "C"],
-    ["accuracy" => "D"],
-    ["accuracy" => "E"],
-    ["accuracy" => "F"],
-    ["accuracy" => "G"]
-];
-
+$accuracy_info = ["A","B","C","D","E","F"];
 echo json_encode($accuracy_info);

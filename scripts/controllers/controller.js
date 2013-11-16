@@ -11,13 +11,20 @@ app.controller("tracController", function($scope, $http){
 
   $scope.projectName = "";
   $scope.showBoxTracs = [];
-  $http.post("getAccuracy.php","")
+  $http.get("getAccuracy.php","")
     .success(function(data){
       $scope.accuracys = data;
-      console.log(data);
     })
     .error(function(){
       $scope.accuracys = [];
+    });
+  $http.get("getParson.php", "")
+    .success(function(data){
+      $scope.parsonList = data;
+      console.log($scope.parsonList);
+    })
+    .error(function(){
+      $scope.parsonList = [];
     });
 
   $scope.addSelectParsonClick = function(item) {
@@ -31,10 +38,5 @@ app.controller("tracController", function($scope, $http){
     });
 
     $scope.projectName = "";
-  }
-
-  $scope.changeAccuracyClick = function(item) {
-    console.log(item);
-    console.log($scope.showBoxTracs);
   }
 });

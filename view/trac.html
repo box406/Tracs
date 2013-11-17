@@ -18,22 +18,9 @@
                       <span class="glyphicon glyphicon-pushpin"></span> Add Trac
                     </button>
                     <ul class="dropdown-menu" role="menu">
-                      <li ng-repeat="section in parsonList" role="presentation" class="dropdown-header">{{section}}</li>
-                      <li ng-repeat="parson in section">
-                        <a class="add-trac" href="" ng-click="addSelectParsonClick(parson)">{{parson}}</a>
+                      <li ng-repeat="(suffix,parson) in parsonList">
+                        <a class="add-trac" href="" ng-click="addSelectParsonClick(suffix)">{{parson}}</a>
                       </li>
-                      
-<!--
-                      <li><a class="add-trac" href="" ng-click="addSelectParsonClick(2)">横尾 結子</a></li>
-                      <li><a class="add-trac" href="" ng-click="addSelectParsonClick(3)">小笠原 沙知絵</a></li>
-                      <li><a class="add-trac" href="" ng-click="addSelectParsonClick(4)">平田 米蔵</a></li>
-                      <li class="divider"></li>
-                      <li role="presentation" class="dropdown-header">第2営業部</li>
-                      <li><a class="add-trac" href="" ng-click="addSelectParsonClick(5)">国分 春樹</a></li>
-                      <li><a class="add-trac" href="" ng-click="addSelectParsonClick(6)">立川 花緑</a></li>
-                      <li><a class="add-trac" href="" ng-click="addSelectParsonClick(7)">宮川 光洋</a></li>
-                      <li><a class="add-trac" href="" ng-click="addSelectParsonClick(8)">浜田 明宏</a></li>
--->
                     </ul>
                   </div>
                 </div>

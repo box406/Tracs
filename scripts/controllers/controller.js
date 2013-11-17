@@ -21,7 +21,6 @@ app.controller("tracController", function($scope, $http){
   $http.get("getParson.php", "")
     .success(function(data){
       $scope.parsonList = data;
-      console.log($scope.parsonList);
     })
     .error(function(){
       $scope.parsonList = [];

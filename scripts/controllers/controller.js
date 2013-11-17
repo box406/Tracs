@@ -18,7 +18,7 @@ app.controller("tracController", function($scope, $http){
     .error(function(){
       $scope.accuracys = [];
     });
-  $http.get("getParson.php", "")
+  $http.get("getParsonList.php", "")
     .success(function(data){
       $scope.parsonList = data;
     })
@@ -28,9 +28,10 @@ app.controller("tracController", function($scope, $http){
 
   $scope.addSelectParsonClick = function(item) {
     
+
     $scope.showBoxTracs.push({
       "trac_id": Math.floor(Math.random() * 1000000),
-      "charge_parson": item,
+      "charge_parson": $scope.parsonList[item],
       "trac_name": $scope.projectName,
       "accuracys": $scope.accuracys,
       "accuracyDefault": "A"

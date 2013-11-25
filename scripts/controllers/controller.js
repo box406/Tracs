@@ -7,27 +7,18 @@ app.controller("loginController", function($scope, $location){
   }
 });
 
-app.controller("tracController", function($scope, $http){
+app.controller("tracController", function($scope, $http, $resource){
 
   $scope.projectName = "";
   $scope.showBoxTracs = [];
-  $http.get("getAccuracy.php","")
-    .success(function(data){
-      $scope.accuracys = data;
-    })
-    .error(function(){
-      $scope.accuracys = [];
-    });
-  $http.get("getParsonList.php", "")
-    .success(function(data){
-      $scope.parsonList = data;
-    })
-    .error(function(){
-      $scope.parsonList = [];
-    });
+    
+  var accuracysList = $resource("getAccuracy.php");
+  $scope.accuracys = accuracysList.get();
+
+  var parsonList = $resource("getParsonList.php");
+  $scope.parsonList = parsonList.get();
 
   $scope.addSelectParsonClick = function(item) {
-    
 
     $scope.showBoxTracs.push({
       "trac_id": Math.floor(Math.random() * 1000000),

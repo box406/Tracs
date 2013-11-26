@@ -17,7 +17,7 @@ app.directive("showBoxTrac", function(){
           receive: function( event, ui ) {
             // move the trac area
             //chengeArea(this, ui.item.attr("title"), $(this).attr("id"));
-            console.log(this, ui.item.attr("title"), $(this).attr("id"));
+            console.log($(this).attr("id"));
           },
           update: function(event, ui) {
             // sort the trac area

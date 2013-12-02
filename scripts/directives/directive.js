@@ -1,4 +1,4 @@
-app.directive("showBoxTrac", function(){
+app.directive("showBoxTrac", function(moveTracService){
   return {
     restict: 'A',
     link: function(scope, element, attributes) {
@@ -17,12 +17,14 @@ app.directive("showBoxTrac", function(){
           receive: function( event, ui ) {
             // move the trac area
             //chengeArea(this, ui.item.attr("title"), $(this).attr("id"));
-            console.log($(this).attr("id"));
+            //console.log($(this).attr("id"));
+            tracId = $(this).attr("id");
+            moveTracService.getMove(tracId);
           },
           update: function(event, ui) {
             // sort the trac area
             trac_area_name = $(this).attr("id")
-            console.log($('#' + trac_area_name).sortable("toArray").join());
+            //console.log($('#' + trac_area_name).sortable("toArray").join());
           }
         });
       }

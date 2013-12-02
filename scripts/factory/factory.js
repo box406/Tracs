@@ -1,8 +1,8 @@
-app.factory("moveTrac", function($scope, $http, $resource){
+app.factory("moveTracService", function(){
   return {
     getMove: function(tracId) {
 
-      return true;
+      console.log(tracId); 
     }
   }
 });

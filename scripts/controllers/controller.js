@@ -11,13 +11,13 @@ app.controller("tracController", function($scope, $http, $resource){
 
   $scope.projectName = "";
   $scope.showBoxTracs = [];
-    
+
   var accuracysList = $resource("getAccuracy.php");
   $scope.accuracys = accuracysList.get();
 
   var parsonList = $resource("getParsonList.php");
   $scope.parsonList = parsonList.get();
-
+  
   $scope.addSelectParsonClick = function(item) {
 
     $scope.showBoxTracs.push({
@@ -31,3 +31,4 @@ app.controller("tracController", function($scope, $http, $resource){
     $scope.projectName = "";
   }
 });
+

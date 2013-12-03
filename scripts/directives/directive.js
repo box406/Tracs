@@ -32,3 +32,19 @@ app.directive("showBoxTrac", function(moveTracService){
   }
 });
 
+app.directive("showCalender", function(){
+  return {
+    restict: 'A',
+    link: function(scope, element, attributes) {
+      $("#regist_date").datepicker({
+        dateFormat: "yy/mm/dd",
+      });
+      $("#start_date").datepicker({
+        dateFormat: "yy/mm/dd"
+      });
+      $("#visit_date").datepicker({
+        dateFormat: "yy/mm/dd"
+      });
+    }
+  }
+});

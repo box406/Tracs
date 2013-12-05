@@ -11,6 +11,7 @@ app.controller("tracController", function($scope, $http, $resource){
 
   $scope.projectName = "";
   $scope.showBoxTracs = [];
+  $scope.tracReports = [];
 
   var accuracysList = $resource("getAccuracy.php");
   $scope.accuracys = accuracysList.get();
@@ -29,6 +30,10 @@ app.controller("tracController", function($scope, $http, $resource){
     });
 
     $scope.projectName = "";
+  }
+
+  $scope.addTracReportClick = function() {
+    $scope.tracReports.push({}); 
   }
 });
 

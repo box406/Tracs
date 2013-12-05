@@ -120,3 +120,8 @@ hr {
     padding-top: 10px;
     padding-bottom: 4px;
 }
+
+.openTracCollapseButton {
+    border:0px; 
+    background-color:transparent;
+}

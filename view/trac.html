@@ -202,10 +202,6 @@
                               </div>
                             </div>
                           </div>
-
-
-
-
                         </form>
                         <!-- /basicInfo -->
                       </div>
@@ -307,16 +303,17 @@
                       </div>
                       <div class="tab-pane" id="tracInfo">
                         <!-- tracInfo< -->
-                        <buuton id="add_sales_reports" class="btn btn-primary">Add Sales Reports</buuton>
+                        <buuton ng-click="addTracReportClick()" id="add_sales_reports" class="btn btn-primary">Add Sales Reports</buuton>
                         <hr />
                         <div id="sales-reports-area">
-                          <div class="panel-group" id="accordion" style="padding-top: 10px">
+                          <div ng-repeat="report in tracReports" class="panel-group" id="accordion" style="padding-top: 10px">
                             <div class="panel panel-warning">
                               <div class="panel-heading">
                                 <h4 class="panel-title">
-                                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-                                    Sales Reports [2013/10/1] - Visit before -
-                                  </a>
+                                  <button  class="accordion-toggle openTracCollapseButton" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                  </button>
+                                  Sales Reports [2013/10/1] - Visit before -
                                 </h4>
                               </div>
                               <div id="collapse1" class="panel-collapse collapse in">
@@ -398,190 +395,6 @@
                                       </div>
                                     </div>
                                   </form>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="panel-group" id="accordion" style="padding-top: 10px">
-                            <div class="panel panel-success">
-                              <div class="panel-heading">
-                                <h4 class="panel-title">
-                                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-                                    Sales Reports [2013/9/25] - Visit After -
-                                  </a>
-                                </h4>
-                              </div>
-                              <div id="collapse2" class="panel-collapse collapse in">
-                                <div class="panel-body">
-                                  <form role="form" class="form-horizontal">
-                                    <div class="row">
-                                      <div class="col-lg-12">                                
-                                        <div class="radio">
-                                          <label>
-                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                                            Visit before
-                                          </label>
-                                        </div>
-                                        <div class="radio">
-                                          <label>
-                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                                            After the visit
-                                          </label>
-                                        </div>
-                                      </div>
-                                    </div>  
-                                    <hr />
-                                    <div class="row">
-                                      <div class="col-lg-6">
-                                        <div class="form-group">
-                                          <label for="InputTracname">Visit Date</label>
-                                          <input type="text" class="form-control input-sm" id="visit_date" placeholder="Enter VisitData">
-                                        </div>
-                                      </div>
-                                      <div class="col-lg-6">
-                                        <div class="form-group">
-                                          <label for="InputTracname">Department Visit</label>
-                                          <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter DepartmentVisit">
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="col-lg-6">
-                                        <div class="form-group">
-                                          <label for="InputTracname">Department Parsonnel</label>
-                                          <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter DepartmentParsonnel">
-                                        </div>
-                                      </div>
-                                      <div class="col-lg-6">
-                                        <div class="form-group">
-                                          <label for="InputTracname">Department Address</label>
-                                          <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter DepartmentAddress">
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="col-lg-6">    
-                                        <div class="form-group">
-                                          <label for="InputTracname">Client Attended</label>
-                                          <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter ClientAttended">
-                                        </div>
-                                      </div>
-                                      <div class="col-lg-6">  
-                                        <div class="form-group">
-                                          <label for="InputTracname">Our Company Attended</label>
-                                          <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter Our CompanyAttended">
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="col-lg-12">  
-                                        <div class="form-group">
-                                          <label for="InputTracname">Sales Content</label>
-                                          <textarea class="form-control" rows="5"></textarea>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="col-lg-12">    
-                                        <div class="form-group">
-                                          <label for="InputTracname">Task</label>
-                                          <textarea class="form-control" rows="5"></textarea>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </form>                            
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="panel-group" id="accordion" style="padding-top: 10px">
-                            <div class="panel panel-success">
-                              <div class="panel-heading">
-                                <h4 class="panel-title">
-                                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-                                    Sales Reports [2013/9/20] - Visit After -
-                                  </a>
-                                </h4>
-                              </div>
-                              <div id="collapse3" class="panel-collapse collapse in">
-                                <div class="panel-body">
-                                  <form role="form" class="form-horizontal">
-                                    <div class="row">
-                                      <div class="col-lg-12">                                
-                                        <div class="radio">
-                                          <label>
-                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                                            Visit before
-                                          </label>
-                                        </div>
-                                        <div class="radio">
-                                          <label>
-                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                                            After the visit
-                                          </label>
-                                        </div>
-                                      </div>
-                                    </div>  
-                                    <hr />
-                                    <div class="row">
-                                      <div class="col-lg-6">
-                                        <div class="form-group">
-                                          <label for="InputTracname">Visit Date</label>
-                                          <input type="text" class="form-control input-sm" id="visit_date" placeholder="Enter VisitData">
-                                        </div>
-                                      </div>
-                                      <div class="col-lg-6">
-                                        <div class="form-group">
-                                          <label for="InputTracname">Department Visit</label>
-                                          <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter DepartmentVisit">
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="col-lg-6">
-                                        <div class="form-group">
-                                          <label for="InputTracname">Department Parsonnel</label>
-                                          <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter DepartmentParsonnel">
-                                        </div>
-                                      </div>
-                                      <div class="col-lg-6">
-                                        <div class="form-group">
-                                          <label for="InputTracname">Department Address</label>
-                                          <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter DepartmentAddress">
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="col-lg-6">    
-                                        <div class="form-group">
-                                          <label for="InputTracname">Client Attended</label>
-                                          <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter ClientAttended">
-                                        </div>
-                                      </div>
-                                      <div class="col-lg-6">  
-                                        <div class="form-group">
-                                          <label for="InputTracname">Our Company Attended</label>
-                                          <input type="text" class="form-control input-sm" id="InputTracname" placeholder="Enter Our CompanyAttended">
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="col-lg-12">  
-                                        <div class="form-group">
-                                          <label for="InputTracname">Sales Content</label>
-                                          <textarea class="form-control" rows="5"></textarea>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="col-lg-12">    
-                                        <div class="form-group">
-                                          <label for="InputTracname">Task</label>
-                                          <textarea class="form-control" rows="5"></textarea>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </form>                            
                                 </div>
                               </div>
                             </div>

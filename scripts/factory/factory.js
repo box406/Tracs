@@ -1,8 +1,12 @@
 app.factory("moveTracService", function(){
   return {
-    getMove: function(tracId) {
+    getMove: function(tracInfo) {
 
-      console.log(tracId); 
+      console.log(tracInfo.tracArea + " : " + tracInfo.tracId); 
+    },
+    getUpdate: function(tracIdList) {
+
+      console.log(tracIdList);
     }
   }
 });

@@ -47,9 +47,9 @@
                     <span class="lang">｜</span>
                     <span class="lang">Number of Current Box : <span class="current-box-num">9</span></span>
                   </div>
-                  <div id="show-box" class="sortable-div trac-area-overflow trac-area-defult" ng-model="showBox" add-trac>
+                  <div id="show-box" class="sortable-div trac-area-overflow trac-area-defult">
                     <!-- showbox tracs -->
-                    <div show-box-trac ng-repeat="trac in showBoxTracs" id="trac_{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
+                    <div show-box-trac ng-repeat="trac in tracs.showBox" id="trac_{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
                       <div class="alert alert-warning">
                         <span class="warning glyphicon glyphicon-warning-sign"></span>
                         <i class="icon-ticket"></i>{{trac.trac_name}}
@@ -85,9 +85,9 @@
                     <span class="lang">｜</span>
                     <span class="lang">Number of Current Box : <span class="current-box-num">9</span></span>
                   </div>
-                  <div id="non-costomers-box" class="sortable-div trac-area-overflow trac-area-defult" ng-model="nonCostomersBox" add-trac>
+                  <div id="non-costomers-box" class="sortable-div trac-area-overflow trac-area-defult">
                     <!-- non-costomers-box tracs -->
-                    <div show-box-trac ng-repeat="trac in nonCostomersBoxTracs" id="trac_{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
+                    <div show-box-trac ng-repeat="trac in tracs.nonCostomersBox" id="trac_{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
                       <div class="alert alert-warning">
                         <span class="warning glyphicon glyphicon-warning-sign"></span>
                         <i class="icon-ticket"></i>{{trac.trac_name}}
@@ -128,7 +128,7 @@
                   </div>
                   <div id="sales-box" class="sortable-div trac-area-overflow trac-area-sales" ng-model="salesBox" add-trac>
                     <!-- sales-box tracs -->
-                    <div show-box-trac ng-repeat="trac in salesBoxTracs" id="trac_{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
+                    <div show-box-trac ng-repeat="trac in tracs.salesBox" id="trac_{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
                       <div class="alert alert-warning">
                         <span class="warning glyphicon glyphicon-warning-sign"></span>
                         <i class="icon-ticket"></i>{{trac.trac_name}}
@@ -169,7 +169,7 @@
                   </div>
                   <div id="order-box" class="sortable-div trac-area-overflow trac-area-defult" ng-model="orderBox" add-trac>
                     <!-- order-box tracs -->
-                    <div show-box-trac ng-repeat="trac in orderBoxTracs" id="trac_{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
+                    <div show-box-trac ng-repeat="trac in tracs.orderBox" id="trac_{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
                       <div class="alert alert-warning">
                         <span class="warning glyphicon glyphicon-warning-sign"></span>
                         <i class="icon-ticket"></i>{{trac.trac_name}}
@@ -208,7 +208,7 @@
                   </div>
                   <div id="lost-box" class="sortable-div trac-area-overflow trac-area-defult" ng-model="lostBox" add-trac>
                     <!-- lost-box tracs -->
-                    <div show-box-trac ng-repeat="trac in lostBoxTracs" id="trac_{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
+                    <div show-box-trac ng-repeat="trac in tracs.lostBox" id="trac_{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
                       <div class="alert alert-warning">
                         <span class="warning glyphicon glyphicon-warning-sign"></span>
                         <i class="icon-ticket"></i>{{trac.trac_name}}

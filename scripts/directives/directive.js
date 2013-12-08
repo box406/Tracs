@@ -18,13 +18,14 @@ app.directive("showBoxTrac", function(moveTracService){
             // move the trac area
             //chengeArea(this, ui.item.attr("title"), $(this).attr("id"));
             //console.log($(this).attr("id"));
-            tracId = $(this).attr("id");
-            moveTracService.getMove(tracId);
+            tracId = ui.item.attr("title");
+            tracAreaId = $(this).attr("id");
+            moveTracService.getMove({"tracArea":tracAreaId, "tracId":tracId});
           },
           update: function(event, ui) {
             // sort the trac area
             trac_area_name = $(this).attr("id")
-            //console.log($('#' + trac_area_name).sortable("toArray").join());
+            moveTracService.getUpdate($('#' + trac_area_name).sortable("toArray").join());
           }
         });
       }

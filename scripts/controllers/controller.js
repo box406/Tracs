@@ -14,45 +14,16 @@ app.controller("tracController", function($scope, $http, $resource){
 
   var parsonList = $resource("getParsonList.php");
   $scope.parsonList = parsonList.get();
- 
+
+  var tracList = $resource("getTracList.php");
+  $scope.tracs = tracList.get();
+
   $scope.projectName = "";
-  $scope.showBoxTracs = [];
-  $scope.nonCostomersBoxTracs = [{
-    "trac_id": Math.floor(Math.random() * 1000000),
-    "charge_parson": $scope.parsonList[1],
-    "trac_name": "test",
-    "accuracys": $scope.accuracys,
-    "accuracyDefault": "A"
-  }];
-  $scope.salesBoxTracs = [{
-    "trac_id": Math.floor(Math.random() * 1000000),
-    "charge_parson": $scope.parsonList[1],
-    "trac_name": "test",
-    "accuracys": $scope.accuracys,
-    "accuracyDefault": "A"
-  }];
-  $scope.orderBoxTracs = [{
-    "trac_id": Math.floor(Math.random() * 1000000),
-    "charge_parson": $scope.parsonList[1],
-    "trac_name": "test",
-    "accuracys": $scope.accuracys,
-    "accuracyDefault": "A"
-  }];
-  $scope.lostBoxTracs = [{
-    "trac_id": Math.floor(Math.random() * 1000000),
-    "charge_parson": $scope.parsonList[1],
-    "trac_name": "test",
-    "accuracys": $scope.accuracys,
-    "accuracyDefault": "A"
-  }];
   $scope.tracReports = [];
 
-  
-
- 
   $scope.addSelectParsonClick = function(item) {
-
-    $scope.showBoxTracs.push({
+    console.log($scope.showBox);
+    $scope.tracs.showBox.push({
       "trac_id": Math.floor(Math.random() * 1000000),
       "charge_parson": $scope.parsonList[item],
       "trac_name": $scope.projectName,

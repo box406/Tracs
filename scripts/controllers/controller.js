@@ -7,30 +7,42 @@ app.controller("loginController", function($scope, $location){
   }
 });
 
-app.controller("tracController", function($scope, $http, $resource){
+app.controller("tracController", function($scope, $http, $resource, adminTracService){
 
-  var accuracysList = $resource("getAccuracy.php");
+  var accuracysList = $resource("http://dev.trac.com/accuracys/");
   $scope.accuracys = accuracysList.get();
 
-  var parsonList = $resource("getParsonList.php");
-  $scope.parsonList = parsonList.get();
+  var memberList = $resource("http://dev.trac.com/members/");
+  $scope.memberList = memberList.get();
 
-  var tracList = $resource("getTracList.php");
+  var tracList = $resource("http://dev.trac.com/tracs/");
   $scope.tracs = tracList.get();
 
   $scope.projectName = "";
   $scope.tracReports = [];
 
   $scope.addSelectParsonClick = function(item) {
-    console.log($scope.showBox);
+    
+    trac_id = Math.floor(Math.random() * 1000000);
+
+    console.log($scope.memberList[item]);
+
     $scope.tracs.showBox.push({
-      "trac_id": Math.floor(Math.random() * 1000000),
-      "charge_parson": $scope.parsonList[item],
+      "trac_id": trac_id,
+      "charge_member": $scope.memberList[item],
       "trac_name": $scope.projectName,
       "accuracys": $scope.accuracys,
       "accuracyDefault": "A"
     });
 
+    // add database
+    adminTracService.registTrac({
+      "trac_id": trac_id,
+      "trac_name": $scope.projectName,
+      "member_id": item,
+      "accuracy_id": "1",
+      "client_id": "1"
+    });
     $scope.projectName = "";
   }
 

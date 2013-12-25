@@ -16,8 +16,6 @@ app.directive("showBoxTrac", function(moveTracService){
           scroll: true,
           receive: function( event, ui ) {
             // move the trac area
-            //chengeArea(this, ui.item.attr("title"), $(this).attr("id"));
-            //console.log($(this).attr("id"));
             tracId = ui.item.attr("title");
             tracAreaId = $(this).attr("id");
             moveTracService.getMove({"tracArea":tracAreaId, "tracId":tracId});

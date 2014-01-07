@@ -23,26 +23,21 @@ app.controller("tracController", function($scope, $http, $resource, adminTracSer
 
   $scope.addSelectParsonClick = function(item) {
     
-    trac_id = Math.floor(Math.random() * 1000000);
-
-    console.log($scope.memberList[item]);
-
-    $scope.tracs.showBox.push({
-      "trac_id": trac_id,
+    new_trac = {
+      "trac_id": Math.floor(Math.random() * 1000000),
       "charge_member": $scope.memberList[item],
       "trac_name": $scope.projectName,
       "accuracys": $scope.accuracys,
-      "accuracyDefault": "A"
-    });
+      "accuracyDefault": "A",
+      "member_id": item,
+      "client_id": "1",
+      "accuracy_id": "1"
+    };
+    $scope.tracs.showBox.push(new_trac);
 
     // add database
-    adminTracService.registTrac({
-      "trac_id": trac_id,
-      "trac_name": $scope.projectName,
-      "member_id": item,
-      "accuracy_id": "1",
-      "client_id": "1"
-    });
+    adminTracService.registTrac(new_trac);
+    // init
     $scope.projectName = "";
   }
 

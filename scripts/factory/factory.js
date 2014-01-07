@@ -15,10 +15,17 @@ app.factory("moveTracService", function($http){
 app.factory("adminTracService", function($http){
   return {
     registTrac: function(tracInfo) {
+      headerInfo = {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      };
 
-      $http({method: "POST", url: "http://dev.trac.com/tracs/add-trac/", data: tracInfo}).
-        success(function(data, status, headers, config){
-          console.log(data + status);
+      $http({method: "POST", 
+          url: "http://dev.trac.com/tracs/add-trac/", 
+          //data: $.param(tracInfo),
+          data: tracInfo,
+          headers: headerInfo})
+        .success(function(data, status, headers, config){
+          //console.log(data + status);
         })
         .error(function(data, status, headers, config){
 

@@ -4,7 +4,6 @@ app.directive("showBoxTrac", function(moveTracService){
     link: function(scope, element, attributes) {
 
       var TRAC_AREA_INFO = ["show-box", "non-costomers-box", "sales-box", "order-box", "lost-box"];
-
       for (trac_area in TRAC_AREA_INFO) {
         // move&sort trac area
         $('#' + TRAC_AREA_INFO[trac_area]).sortable({
@@ -19,6 +18,11 @@ app.directive("showBoxTrac", function(moveTracService){
             tracId = ui.item.attr("title");
             tracAreaId = $(this).attr("id");
             moveTracService.getMove({"tracArea":tracAreaId, "tracId":tracId});
+          },
+          start: function(event, ui) {
+            tracId = ui.item.attr("title");
+            tracAreaId = $(this).attr("id");
+            console.log("start => : " + tracAreaId + " = " + tracId);
           },
           update: function(event, ui) {
             // sort the trac area

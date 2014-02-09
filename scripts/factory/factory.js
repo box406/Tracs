@@ -1,9 +1,8 @@
 app.factory("moveTracService", function($http){
   return {
     getMove: function(tracInfo) {
-
-      console.log(tracInfo.tracArea + " : " + tracInfo.tracId);
       
+      console.log(tracInfo.tracArea + " : " + tracInfo.tracId);
     },
     getUpdate: function(tracIdList) {
 
@@ -12,7 +11,7 @@ app.factory("moveTracService", function($http){
   }
 });
 
-app.factory("adminTracService", function($http){
+app.factory("adminTracService", function($http, $rootScope){
   return {
     registTrac: function(tracInfo) {
       headerInfo = {

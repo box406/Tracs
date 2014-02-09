@@ -49,7 +49,10 @@
                   </div>
                   <div id="show-box" class="sortable-div trac-area-overflow trac-area-defult">
                     <!-- showbox tracs -->
+<!--
                     <div show-box-trac ng-repeat="trac in tracs.showBox" id="{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
+-->
+                    <div ng-repeat="trac in tracs.showBox" id="{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
                       <div class="alert alert-warning">
                         <span class="warning glyphicon glyphicon-warning-sign"></span>
                         <i class="icon-ticket"></i>{{trac.trac_name}}
@@ -87,7 +90,10 @@
                   </div>
                   <div id="non-costomers-box" class="sortable-div trac-area-overflow trac-area-defult">
                     <!-- non-costomers-box tracs -->
+<!--                    
                     <div show-box-trac ng-repeat="trac in tracs.nonCostomersBox" id="{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
+-->
+                    <div ng-repeat="trac in tracs.nonCostomersBox" id="{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
                       <div class="alert alert-warning">
                         <span class="warning glyphicon glyphicon-warning-sign"></span>
                         <i class="icon-ticket"></i>{{trac.trac_name}}
@@ -128,8 +134,10 @@
                   </div>
                   <div id="sales-box" class="sortable-div trac-area-overflow trac-area-sales" ng-model="salesBox" add-trac>
                     <!-- sales-box tracs -->
+<!--
                     <div show-box-trac ng-repeat="trac in tracs.salesBox" id="{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
-                      <div class="alert alert-warning">
+-->
+                    <div ng-repeat="trac in tracs.salesBox" id="{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">                      <div class="alert alert-warning">
                         <span class="warning glyphicon glyphicon-warning-sign"></span>
                         <i class="icon-ticket"></i>{{trac.trac_name}}
                         <div class="pull-right">
@@ -169,7 +177,10 @@
                   </div>
                   <div id="order-box" class="sortable-div trac-area-overflow trac-area-defult" ng-model="orderBox" add-trac>
                     <!-- order-box tracs -->
+<!--
                     <div show-box-trac ng-repeat="trac in tracs.orderBox" id="{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
+-->
+                    <div ng-repeat="trac in tracs.orderBox" id="{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
                       <div class="alert alert-warning">
                         <span class="warning glyphicon glyphicon-warning-sign"></span>
                         <i class="icon-ticket"></i>{{trac.trac_name}}
@@ -208,7 +219,10 @@
                   </div>
                   <div id="lost-box" class="sortable-div trac-area-overflow trac-area-defult" ng-model="lostBox" add-trac>
                     <!-- lost-box tracs -->
+<!--
                     <div show-box-trac ng-repeat="trac in tracs.lostBox" id="{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
+-->
+                    <div ng-repeat="trac in tracs.lostBox" id="{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
                       <div class="alert alert-warning">
                         <span class="warning glyphicon glyphicon-warning-sign"></span>
                         <i class="icon-ticket"></i>{{trac.trac_name}}

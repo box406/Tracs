@@ -6,7 +6,7 @@
     padding: 5px 10px;
 }
 
-.panel #show-box, #non-costomers-box, #sales-box, #order-box, #lost-box {
+.panel #show_box, #non_costomers_box, #sales_box, #order_box, #lost_box {
     background-image: url("../images/Patterns1-06.png");
     border-radius: 0px;
 }

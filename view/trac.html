@@ -47,12 +47,9 @@
                     <span class="lang">｜</span>
                     <span class="lang">Number of Current Box : <span class="current-box-num">9</span></span>
                   </div>
-                  <div id="show-box" class="sortable-div trac-area-overflow trac-area-defult">
-                    <!-- showbox tracs -->
-<!--
-                    <div show-box-trac ng-repeat="trac in tracs.showBox" id="{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
--->
-                    <div ng-repeat="trac in tracs.showBox" id="{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
+                  <div id="show_box" class="sortable-div trac-area-overflow trac-area-defult">
+                    <!-- show_box tracs -->
+                    <div ng-repeat="trac in tracs.show_box" id="{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
                       <div class="alert alert-warning">
                         <span class="warning glyphicon glyphicon-warning-sign"></span>
                         <i class="icon-ticket"></i>{{trac.trac_name}}
@@ -73,11 +70,11 @@
                         </div>
                       </div>
                     </div>
-                    <!-- /showbox tracs -->
+                    <!-- /show_box tracs -->
                   </div>
                 </div>
-                <!-- /show-box -->
-                <!-- non-costomers-box -->
+                <!-- /show_box -->
+                <!-- non_costomers_box -->
                 <div id="sortable-div-non-costomers-box" class="panel panel-default">
                   <div class="panel-heading">
                     <h3 class="panel-title">Non-customers BOX</h3>
@@ -88,12 +85,9 @@
                     <span class="lang">｜</span>
                     <span class="lang">Number of Current Box : <span class="current-box-num">9</span></span>
                   </div>
-                  <div id="non-costomers-box" class="sortable-div trac-area-overflow trac-area-defult">
-                    <!-- non-costomers-box tracs -->
-<!--                    
-                    <div show-box-trac ng-repeat="trac in tracs.nonCostomersBox" id="{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
--->
-                    <div ng-repeat="trac in tracs.nonCostomersBox" id="{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
+                  <div id="non_costomers_box" class="sortable-div trac-area-overflow trac-area-defult">
+                    <!-- non_costomers_box tracs -->
+                    <div ng-repeat="trac in tracs.non_costomers_box" id="{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
                       <div class="alert alert-warning">
                         <span class="warning glyphicon glyphicon-warning-sign"></span>
                         <i class="icon-ticket"></i>{{trac.trac_name}}
@@ -105,7 +99,6 @@
                               {{trac.accuracyDefault}} <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
-                              <!--<li ng-repeat="accuracy in trac.accuracys"><a class="trac-accuracy" ng-click="changeAccuracyClick(accuracy)" href="">{{accuracy}}</a></li>-->
                               <li ng-repeat="accuracy in trac.accuracys"><a class="trac-accuracy" ng-click="trac.accuracyDefault = accuracy" href="">{{accuracy}}</a></li>
                             </ul>
                           </div>
@@ -115,13 +108,13 @@
                         </div>
                       </div>
                     </div>
-                    <!-- /non-costomers-box tracs -->
+                    <!-- /non_costomers_box tracs -->
                   </div>
                 </div>
-                <!-- /non-costomers-box -->
+                <!-- /non_costomers_box -->
               </div>
               <div class="col-lg-4">
-                <!-- sales-box -->
+                <!-- sales_box -->
                 <div id="sortable-div-sales-box" class="panel panel-info">
                   <div class="panel-heading">
                     <h3 class="panel-title">Sales BOX</h3>
@@ -132,12 +125,9 @@
                     <span class="lang">｜</span>
                     <span class="lang">Number of Current Box : <span class="current-box-num">9</span></span>
                   </div>
-                  <div id="sales-box" class="sortable-div trac-area-overflow trac-area-sales" ng-model="salesBox" add-trac>
-                    <!-- sales-box tracs -->
-<!--
-                    <div show-box-trac ng-repeat="trac in tracs.salesBox" id="{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
--->
-                    <div ng-repeat="trac in tracs.salesBox" id="{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">                      <div class="alert alert-warning">
+                  <div id="sales_box" class="sortable-div trac-area-overflow trac-area-sales" ng-model="salesBox" add-trac>
+                    <!-- sales_box tracs -->
+                    <div ng-repeat="trac in tracs.sales_box" id="{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">                      <div class="alert alert-warning">
                         <span class="warning glyphicon glyphicon-warning-sign"></span>
                         <i class="icon-ticket"></i>{{trac.trac_name}}
                         <div class="pull-right">
@@ -148,7 +138,6 @@
                               {{trac.accuracyDefault}} <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
-                              <!--<li ng-repeat="accuracy in trac.accuracys"><a class="trac-accuracy" ng-click="changeAccuracyClick(accuracy)" href="">{{accuracy}}</a></li>-->
                               <li ng-repeat="accuracy in trac.accuracys"><a class="trac-accuracy" ng-click="trac.accuracyDefault = accuracy" href="">{{accuracy}}</a></li>
                             </ul>
                           </div>
@@ -158,13 +147,13 @@
                         </div>
                       </div>
                     </div>
-                    <!-- /sales-box tracs -->
+                    <!-- /sales_box tracs -->
                   </div>
                 </div>
-                <!-- /sales-box -->
+                <!-- /sales_box -->
               </div>
               <div class="col-lg-4">
-                <!-- order-box -->
+                <!-- order_box -->
                 <div id="sortable-div-order-box" class="panel panel-success">
                   <div class="panel-heading">
                     <h3 class="panel-title">Order BOX</h3>
@@ -175,12 +164,9 @@
                     <span class="lang">｜</span>
                     <span class="lang">Number of Current Box : <span class="current-box-num">9</span></span>
                   </div>
-                  <div id="order-box" class="sortable-div trac-area-overflow trac-area-defult" ng-model="orderBox" add-trac>
-                    <!-- order-box tracs -->
-<!--
-                    <div show-box-trac ng-repeat="trac in tracs.orderBox" id="{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
--->
-                    <div ng-repeat="trac in tracs.orderBox" id="{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
+                  <div id="order_box" class="sortable-div trac-area-overflow trac-area-defult" ng-model="orderBox" add-trac>
+                    <!-- order_box tracs -->
+                    <div ng-repeat="trac in tracs.order_box" id="{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
                       <div class="alert alert-warning">
                         <span class="warning glyphicon glyphicon-warning-sign"></span>
                         <i class="icon-ticket"></i>{{trac.trac_name}}
@@ -192,7 +178,6 @@
                               {{trac.accuracyDefault}} <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
-                              <!--<li ng-repeat="accuracy in trac.accuracys"><a class="trac-accuracy" ng-click="changeAccuracyClick(accuracy)" href="">{{accuracy}}</a></li>-->
                               <li ng-repeat="accuracy in trac.accuracys"><a class="trac-accuracy" ng-click="trac.accuracyDefault = accuracy" href="">{{accuracy}}</a></li>
                             </ul>
                           </div>
@@ -202,11 +187,11 @@
                         </div>
                       </div>
                     </div>
-                    <!-- /order-box tracs -->                    
+                    <!-- /order_box tracs -->                    
                   </div>
                 </div>
-                <!-- /order-box -->
-                <!-- lost-box -->
+                <!-- /order_box -->
+                <!-- lost_box -->
                 <div id="sortable-div-lost-box" class="panel panel-danger">
                   <div class="panel-heading">
                     <h3 class="panel-title">Lost BOX</h3>
@@ -217,12 +202,9 @@
                     <span class="lang">｜</span>
                     <span class="lang">Number of Current Box : <span class="current-box-num">9</span></span>
                   </div>
-                  <div id="lost-box" class="sortable-div trac-area-overflow trac-area-defult" ng-model="lostBox" add-trac>
-                    <!-- lost-box tracs -->
-<!--
-                    <div show-box-trac ng-repeat="trac in tracs.lostBox" id="{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
--->
-                    <div ng-repeat="trac in tracs.lostBox" id="{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
+                  <div id="lost_box" class="sortable-div trac-area-overflow trac-area-defult" ng-model="lostBox" add-trac>
+                    <!-- lost_box tracs -->
+                    <div ng-repeat="trac in tracs.lost_box" id="{{trac.trac_id}}" title="{{trac.trac_id}}" class="ui_state_default trac">
                       <div class="alert alert-warning">
                         <span class="warning glyphicon glyphicon-warning-sign"></span>
                         <i class="icon-ticket"></i>{{trac.trac_name}}
@@ -234,7 +216,6 @@
                               {{trac.accuracyDefault}} <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
-                              <!--<li ng-repeat="accuracy in trac.accuracys"><a class="trac-accuracy" ng-click="changeAccuracyClick(accuracy)" href="">{{accuracy}}</a></li>-->
                               <li ng-repeat="accuracy in trac.accuracys"><a class="trac-accuracy" ng-click="trac.accuracyDefault = accuracy" href="">{{accuracy}}</a></li>
                             </ul>
                           </div>
@@ -244,10 +225,10 @@
                         </div>
                       </div>
                     </div>
-                    <!-- /lost-box tracs -->                    
+                    <!-- /lost_box tracs -->                    
                   </div>
                 </div>
-                <!-- /lost-box -->
+                <!-- /lost_box -->
               </div>
             </div>
             <!-- Modal -->
@@ -262,15 +243,12 @@
                     <ul class="nav nav-tabs nav-justified" id="infoTab">
                       <li class="active">
                         <button class="btn btn-primary" href="#basicInfo" data-toggle="tab">Basic Infomation</button>
-                        <!-- a href="#basicInfo" data-toggle="tab">basicInfo</a -->
                       </li>
                       <li>
                         <button class="btn btn-primary" href="#moreInfo" data-toggle="tab">More Infomation</button>
-                        <!-- a href="#moreInfo" data-toggle="tab">moreInfo</a -->
                       </li>
                       <li>
                         <button class="btn btn-primary" href="#tracInfo" data-toggle="tab">trac Infomation</button>
-                        <!-- a href="#tracInfo" data-toggle="tab">tracInfo</a -->
                       </li>
                     </ul>
                     <div class="tab-content">

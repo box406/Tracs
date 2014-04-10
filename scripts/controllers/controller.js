@@ -19,6 +19,9 @@ app.controller("tracController", function($scope, $rootScope, $http, $resource, 
   $scope.tracs = tracList.get();
 
   var sortableEle;
+  var tracArea;  
+  var startTracArea;
+  var receiveTracArea;
 
   $scope.projectName = "";
   $scope.tracReports = [];
@@ -30,7 +33,7 @@ app.controller("tracController", function($scope, $rootScope, $http, $resource, 
       "trac_id": Math.floor(Math.random() * 1000000),
       "charge_member": $scope.memberList[item],
       "trac_name": $scope.projectName,
-      "accuracys": $scope.accuracys,
+      "accuracy": $scope.accuracys,
       "accuracyDefault": "A",
       "member_id": item,
       "client_id": "1",
@@ -50,31 +53,28 @@ app.controller("tracController", function($scope, $rootScope, $http, $resource, 
 
   $scope.dragStart = function(e, ui) {
     $scope.start = ui.item.index();
-    $scope.startTracArea = $(this).attr("id");
+    startTracArea = $(this).attr("id");
   }
 
   $scope.dragReceive = function(e, ui) {
-    $scope.receiveFlag = true;
+  
+    receiveTracArea = $(this).attr("id");
   }
 
-  $scope.dragUpdate = function(e, ui) {
-    if ($scope.receiveFlag == true) {
-      $scope.receiveFlag = false;
-
-
-      removeItem = $scope.tracs[$scope.startTracArea].splice($scope.start, 1);
-      $scope.tracs[$(this).attr("id")].splice(ui.item.index(), 0, removeItem[0]);
-
-      console.log("1:" + "start: " + $scope.startTracArea + ", update: " + $(this).attr("id"));
-      console.log($scope.tracs);
+  $scope.dragStop = function(e, ui) {
+    
+    // tracsから移動するtracを抜き出す
+    removeItem = $scope.tracs[startTracArea].splice($scope.start, 1);
+      
+    // 移動するtracを対象のtracsに入れる、同じtracに入れる場合と、異なるtracに入れる場合がある
+    if (receiveTracArea == undefined) {
+      $scope.tracs[startTracArea].splice(ui.item.index(), 0, removeItem[0]);
     } else {
-
-      removeItem = $scope.tracs[$scope.startTracArea].splice($scope.start, 1);
-      $scope.tracs[$scope.startTracArea].splice(ui.item.index(), 0, removeItem[0]);
-
-      console.log("2:" + "start: " + $scope.startTracArea + ", update: " + $(this).attr("id"));
-      console.log($scope.tracs);
+      $scope.tracs[receiveTracArea].splice(ui.item.index(), 0, removeItem[0]);
+      receiveTracArea = undefined;
     }
+
+    console.log($scope.tracs);
   }
 
   var TRAC_AREA_INFO = ["show_box", "non_costomers_box", "sales_box", "order_box", "lost_box"];
@@ -87,8 +87,8 @@ app.controller("tracController", function($scope, $rootScope, $http, $resource, 
       revert: true,
       scroll: true,
       receive: $scope.dragReceive,
-      start: $scope.dragStart,
-      update: $scope.dragUpdate
+      stop: $scope.dragStop,
+      start: $scope.dragStart
     });
   }
 });

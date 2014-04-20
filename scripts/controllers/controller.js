@@ -7,7 +7,7 @@ app.controller("loginController", function($scope, $location){
   }
 });
 
-app.controller("tracController", function($scope, $rootScope, $http, $resource, adminTracService){
+app.controller("tracController", function($scope, $rootScope, $http, $resource, adminTracService, moveTracService){
 
   var accuracysList = $resource("http://dev.trac.com/accuracys/");
   $scope.accuracys = accuracysList.get();
@@ -20,8 +20,8 @@ app.controller("tracController", function($scope, $rootScope, $http, $resource, 
 
   var sortableEle;
   var tracArea;  
-  var startTracArea;
-  var receiveTracArea;
+  var startTracArea = "";
+  var receiveTracArea = "";
 
   $scope.projectName = "";
   $scope.tracReports = [];
@@ -66,15 +66,29 @@ app.controller("tracController", function($scope, $rootScope, $http, $resource, 
     // tracsから移動するtracを抜き出す
     removeItem = $scope.tracs[startTracArea].splice($scope.start, 1);
       
-    // 移動するtracを対象のtracsに入れる、同じtracに入れる場合と、異なるtracに入れる場合がある
-    if (receiveTracArea == undefined) {
+    if (receiveTracArea == "") {
+      // 同じtrac内で順番を入れ替えた
       $scope.tracs[startTracArea].splice(ui.item.index(), 0, removeItem[0]);
     } else {
+      // trac間で移動した
       $scope.tracs[receiveTracArea].splice(ui.item.index(), 0, removeItem[0]);
-      receiveTracArea = undefined;
     }
-
-    console.log($scope.tracs);
+   
+    //console.log($scope.tracs);
+    //console.log(startTracArea);
+    //console.log(receiveTracArea);
+    //console.log(removeItem[0]["trac_id"]);
+    
+    moveTracService.getMove(
+      {
+        "index": ui.item.index(),
+        "start": startTracArea, 
+        "receive": receiveTracArea, 
+        "trac_id": removeItem[0]["trac_id"] 
+      }
+    );
+    receiveTracArea = "";
+    startTracArea = "";
   }
 
   var TRAC_AREA_INFO = ["show_box", "non_costomers_box", "sales_box", "order_box", "lost_box"];

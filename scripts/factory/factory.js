@@ -2,11 +2,26 @@ app.factory("moveTracService", function($http){
   return {
     getMove: function(tracInfo) {
       
-      console.log(tracInfo.tracArea + " : " + tracInfo.tracId);
-    },
-    getUpdate: function(tracIdList) {
+      //console.log(tracInfo);
+      headerInfo = {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      };
+      
+      console.log(tracInfo);
+      console.log(headerInfo);
 
-      console.log(tracIdList);
+      $http({
+          method: "POST", 
+          url: "http://dev.trac.com/tracs/move/", 
+          data: tracInfo,
+          headers: headerInfo
+        })
+        .success(function(data, status, headers, config){
+          //console.log(data + status);
+        })
+        .error(function(data, status, headers, config){
+
+        });
     }
   }
 });
@@ -18,11 +33,12 @@ app.factory("adminTracService", function($http, $rootScope){
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
       };
 
-      $http({method: "POST", 
+      $http({
+          method: "POST", 
           url: "http://dev.trac.com/tracs/add-trac/", 
-          //data: $.param(tracInfo),
           data: tracInfo,
-          headers: headerInfo})
+          headers: headerInfo
+        })
         .success(function(data, status, headers, config){
           //console.log(data + status);
         })
